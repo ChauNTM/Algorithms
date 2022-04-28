@@ -61,26 +61,7 @@ public class Main {
 //
 //        System.out.println("bst floor of N: " + bst.floor('N'));
 
-        test();
 
-
-    }
-
-    private static void test() {
-        List<CompletableFuture<?>> futures = new ArrayList<>();
-        CompletableFuture<String> completableFuture = CompletableFuture.supplyAsync(() -> {
-            throw new IllegalArgumentException("my exception");
-        });
-        CompletableFuture<String> completableFuture1 = CompletableFuture.supplyAsync(() -> "Test 1");
-        CompletableFuture<String> completableFuture2 = CompletableFuture.supplyAsync(() -> "Test 2");
-        CompletableFuture<String> completableFuture3 = CompletableFuture.supplyAsync(() -> "Test 3");
-        futures.add(completableFuture);
-        futures.add(completableFuture1);
-        futures.add(completableFuture2);
-        futures.add(completableFuture3);
-        CompletableFuture<Void> combinedFuture = CompletableFuture.allOf(
-            futures.stream().map(it -> it.exceptionally(throwable -> null)).toArray(CompletableFuture[]::new));
-        combinedFuture.thenRun(() -> System.out.println("completed")).join();
 
     }
 }
