@@ -2,7 +2,6 @@ package com.company;
 
 
 import com.company.sorting.heapsort.MaxPQ;
-import com.company.sorting.heapsort.PriorityQueue;
 
 public class Main {
 
