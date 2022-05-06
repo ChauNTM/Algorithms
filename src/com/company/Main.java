@@ -1,27 +1,25 @@
 package com.company;
 
-
+import com.company.sorting.heapsort.HeapSort;
 import com.company.sorting.heapsort.MaxPQ;
+
+import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) {
-//        Integer[] array = new Integer[] {2, 118, 10, 16, -2, 2, 100, 60, 70, 45, 17, 450, 18, 8};
+        Integer[] array = new Integer[] {2, 118, 10, 16, -2, 2, 100, 60, 70, 45, 17, 450, 18, 8};
 //        QuickSort<Integer> quickSort = new QuickSort3Way<>();
-//        quickSort.sort(array, Integer::compareTo);
+//        quickSort.sort(array);
 //        System.out.println("Quick sort result: " + Arrays.toString(array));
 //
 //        MergeSort<Integer> mergeSort = new TopDownMergeSort<>();
-//        mergeSort.sort(array, (o1, o2) -> {
-//            if (o1.equals(o2)) return 0;
-//            else if (o1 > o2) return -1;
-//            else return 1;
-//        });
+//        mergeSort.sort(array);
 //        System.out.println("BottomUpMergeSort decrease result: " + Arrays.toString(array));
-//
-//        Sort<Integer> heapSort = new HeapSort<>();
-//        heapSort.sort(array, Integer::compareTo);
-//        System.out.println("HeapSort result: " + Arrays.toString(array));
+
+        HeapSort<Integer> heapSort = new HeapSort<>();
+        heapSort.sort(array);
+        System.out.println("HeapSort result: " + Arrays.toString(array));
 //
 //        BST<Character, Integer> bst = new BST<>();
 //        bst.put('S', 1);
@@ -50,7 +48,7 @@ public class Main {
 //
 //        System.out.println("bst floor of N: " + bst.floor('N'));
 
-        testPriorityQueue();
+//        testPriorityQueue();
 
     }
 
