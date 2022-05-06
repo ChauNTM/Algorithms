@@ -17,14 +17,15 @@ public class MaxPQ<Key extends Comparable<Key>> {
   }
 
   public void insert(Key v) {
-    pq[n++] = v;
+    pq[++n] = v;
     swim(n);
   }
 
   public Key delMax() {
     Key max = pq[1];
-    exchange(1, n--);
-    pq[n + 1] = null;
+    exchange(1, n);
+    pq[n] = null;
+    n--;
     sink(1);
     return max;
   }
@@ -47,12 +48,19 @@ public class MaxPQ<Key extends Comparable<Key>> {
   }
 
   private void sink(int k) {
-    while (2 * k <= n) {
+    while (2 * k < n) {
       int j = 2 * k;
       if (less(j, j + 1)) j++;
       if (!less(k, j)) break;
       exchange(k, j);
       k = j;
+    }
+  }
+
+  public void println() {
+    System.out.println("N=" + n);
+    for(int i=1; i <= n; i++) {
+      System.out.println(pq[i] + "   ");
     }
   }
 }

@@ -1,18 +1,8 @@
 package com.company;
 
-import com.company.searching.bst.BST;
-import com.company.searching.symbol_table.BinarySearchST;
-import com.company.sorting.*;
-import com.company.sorting.heapsort.HeapSort;
-import com.company.sorting.mergesort.MergeSort;
-import com.company.sorting.mergesort.TopDownMergeSort;
-import com.company.sorting.quicksort.QuickSort;
-import com.company.sorting.quicksort.QuickSort3Way;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
+import com.company.sorting.heapsort.MaxPQ;
+import com.company.sorting.heapsort.PriorityQueue;
 
 public class Main {
 
@@ -33,7 +23,7 @@ public class Main {
 //        Sort<Integer> heapSort = new HeapSort<>();
 //        heapSort.sort(array, Integer::compareTo);
 //        System.out.println("HeapSort result: " + Arrays.toString(array));
-
+//
 //        BST<Character, Integer> bst = new BST<>();
 //        bst.put('S', 1);
 //        bst.put('H', 19);
@@ -61,8 +51,28 @@ public class Main {
 //
 //        System.out.println("bst floor of N: " + bst.floor('N'));
 
+        testPriorityQueue();
 
+    }
 
+    private static void testPriorityQueue() {
+        MaxPQ<Integer> queue = new MaxPQ<>(100);
+        queue.insert(2);
+        queue.insert(50);
+        queue.insert(611);
+        queue.insert(13);
+        queue.insert(71);
+        queue.insert(12);
+        System.out.println("Priority queue");
+        queue.println();
+        queue.delMax();
+        queue.insert(101);
+        queue.delMax();
+        queue.insert(-34);
+        queue.insert(134);
+//        queue.delMax();
+        System.out.println("Result: Priority queue");
+        queue.println();
     }
 }
 
