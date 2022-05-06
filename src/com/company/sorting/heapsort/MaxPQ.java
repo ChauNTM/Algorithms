@@ -50,7 +50,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
   private void sink(int k) {
     while (2 * k < n) {
       int j = 2 * k;
-      if (less(j, j + 1)) j++;
+      if (j < n && less(j, j + 1)) ++j;
       if (!less(k, j)) break;
       exchange(k, j);
       k = j;
