@@ -2,30 +2,30 @@ package com.company.sorting.heapsort;
 
 public class MaxPQ<Key extends Comparable<Key>> {
   private Key[] pq;
-  private int n = 0;
+  private int size = 0;
 
   public MaxPQ(int maxN) {
     pq = (Key[]) new Comparable[maxN + 1];
   }
 
   public boolean isEmpty() {
-    return n == 0;
+    return size == 0;
   }
 
   public int size() {
-    return n;
+    return size;
   }
 
   public void insert(Key v) {
-    pq[++n] = v;
-    swim(n);
+    pq[++size] = v;
+    swim(size);
   }
 
   public Key delMax() {
     Key max = pq[1];
-    exchange(1, n);
-    pq[n] = null;
-    n--;
+    exchange(1, size);
+    pq[size] = null;
+    size--;
     sink(1);
     return max;
   }
@@ -48,19 +48,21 @@ public class MaxPQ<Key extends Comparable<Key>> {
   }
 
   private void sink(int k) {
-    while (2 * k < n) {
+    while (2 * k < size) {
       int j = 2 * k;
-      if (j < n && less(j, j + 1)) ++j;
+      if (j < size && less(j, j + 1)) ++j;
       if (!less(k, j)) break;
       exchange(k, j);
       k = j;
     }
   }
 
-  public void println() {
-    System.out.println("N=" + n);
-    for(int i=1; i <= n; i++) {
-      System.out.println(pq[i] + "   ");
+  public String toString() {
+    StringBuilder builder = new StringBuilder();
+    builder.append("N=").append(size).append("\n");
+    for(int i = 1; i <= size; i++) {
+      builder.append(pq[i]).append("    ");
     }
+    return builder.toString();
   }
 }

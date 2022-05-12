@@ -21,7 +21,7 @@ public class HeapSort<T extends Comparable<T>> extends Sort<T> {
     }
   }
 
-  private void swim(T[] a, int k, int n) {
+  private void swim(T[] a, int k) {
     while (k > 1 && less(a, k/2, k)) {
       exchange(a, k, k / 2);
       k = k / 2;

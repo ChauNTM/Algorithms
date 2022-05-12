@@ -33,6 +33,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
     if (key == null) throw new IllegalArgumentException("Key in get() is null");
     if (isEmpty()) return null;
     int i = rank(key);
+    // if key not found, then i = 0 and keys[0] != key, then return null
     if (i < size && keys[i].equals(key)) return values[i];
     else return null;
   }
@@ -101,8 +102,8 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
   public Key floor(Key key) {
     if (key == null) throw new IllegalArgumentException("Key in floor() is null");
     int i = rank(key);
-    if (i == 0) throw new NoSuchElementException("argument to floor() is too small");
     if (i < size && key.equals(keys[i])) return keys[i];
+    if (i == 0) throw new NoSuchElementException("argument to floor() is too small");
     return keys[i - 1];
   }
 
@@ -126,5 +127,14 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
     // resize if 1/4 full
     if (size > 0 && size <= keys.length/4) resize(keys.length/2);
 
+  }
+
+  public String toString() {
+    StringBuilder builder = new StringBuilder();
+    builder.append(this.getClass().getSimpleName()).append("\n");
+    for (int i=0; i<size; i++) {
+      builder.append("(").append(keys[i]).append(", ").append(values[i]).append(")").append("    ");
+    }
+    return builder.toString();
   }
 }
