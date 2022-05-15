@@ -71,52 +71,30 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> extends BSTAbstrac
         if (!isEmpty()) root.color = BLACK;
     }
 
-//    Node moveRedLeft(Node h) {
-//        flipColors(h);
-//
-//        if (h.right != null && isRed(h.right.left)) {
-//            h.right = rotateRight(h.right);
-//            h = rotateLeft(h);
-//            flipColors(h);
-//        }
-//
-//        return h;
-//    }
+    Node moveRedLeft(Node h) {
+        flipColors(h);
 
-//    Node balance(Node h) {
-//        if (isRed(h.right) && !isRed(h.left)) h = rotateLeft(h);
-//        if (isRed(h.left) && isRed(h.right)) flipColors(h);
-//        if (isRed(h.left) && isRed(h.left.left)) h = rotateRight(h);
-//
-//        h.N = size(h.left) + size(h.right) + 1;
-//
-//        return h;
-//    }
+        if (h.right != null && isRed(h.right.left)) {
+            h.right = rotateRight(h.right);
+            h = rotateLeft(h);
+            flipColors(h);
+        }
 
-    private Node balance(Node h) {
-        // assert (h != null);
-
-        if (isRed(h.right) && !isRed(h.left))    h = rotateLeft(h);
-        if (isRed(h.left) && isRed(h.left.left)) h = rotateRight(h);
-        if (isRed(h.left) && isRed(h.right))     flipColors(h);
-
-        h.N = size(h.left) + size(h.right) + 1;
         return h;
     }
 
-//    Node deleteMin(Node h) {
-//        if (h.left == null) return null;
-//
-//        if (!isRed(h.left) && !isRed(h.left.left))
-//            h = moveRedLeft(h);
-//
-//        h.left = deleteMin(h.left);
-//        return balance(h);
-//    }
+    Node balance(Node h) {
+        if (isRed(h.right) && !isRed(h.left)) h = rotateLeft(h);
+        if (isRed(h.left) && isRed(h.right)) flipColors(h);
+        if (isRed(h.left) && isRed(h.left.left)) h = rotateRight(h);
 
-    private Node deleteMin(Node h) {
-        if (h.left == null)
-            return null;
+        h.N = size(h.left) + size(h.right) + 1;
+
+        return h;
+    }
+
+    Node deleteMin(Node h) {
+        if (h.left == null) return null;
 
         if (!isRed(h.left) && !isRed(h.left.left))
             h = moveRedLeft(h);
@@ -125,17 +103,32 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> extends BSTAbstrac
         return balance(h);
     }
 
-    private Node moveRedLeft(Node h) {
-        // assert (h != null);
-        // assert isRed(h) && !isRed(h.left) && !isRed(h.left.left);
+    public void deleteMax() {
+        root = deleteMax(root);
+    }
 
+    private Node moveRedRight(Node h) {
         flipColors(h);
-        if (isRed(h.right.left)) {
-            h.right = rotateRight(h.right);
-            h = rotateLeft(h);
+        if (isRed(h.left.left)) {
+            h = rotateRight(h);
             flipColors(h);
         }
+
         return h;
+    }
+
+    Node deleteMax(Node h) {
+        if (isRed(h.left))
+            h = rotateRight(h);
+
+        if (h.right == null) return null;
+
+        if (!isRed(h.right) && !isRed(h.right.left))
+            moveRedRight(h);
+
+        h.right = deleteMax(h.right);
+        return balance(h);
+
     }
 }
 

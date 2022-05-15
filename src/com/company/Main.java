@@ -2,6 +2,9 @@ package com.company;
 
 import com.company.searching.bst.BST;
 import com.company.searching.bst.RedBlackTree;
+import com.company.searching.hashtable.HashTable;
+import com.company.searching.hashtable.LinearProbingHashST;
+import com.company.searching.hashtable.SeparateChainingHashST;
 import com.company.searching.symbol_table.BinarySearchST;
 import com.company.sorting.heapsort.HeapSort;
 import com.company.sorting.heapsort.MaxPQ;
@@ -15,8 +18,22 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        testBST();
-        testRedBlackTree();
+        testHashTable();
+    }
+
+    private static void testHashTable() {
+        HashTable<Character, Integer> st = new LinearProbingHashST<>();
+        st.put('A', 18);
+        st.put('B', 180);
+        st.put('Z', 23);
+        st.put('W', 10);
+        st.put('L', 3);
+        st.put('T', 5);
+        st.put('K', 120);
+
+        System.out.println("Hashtable search result: " + st.get('K'));
+        st.delete('K');
+        System.out.println("Hashtable search result: " + st.get('K'));
     }
 
     private static void testSort() {
@@ -56,6 +73,9 @@ public class Main {
         System.out.println("Delete min Red-Black tree " + rbTree);
         rbTree.deleteMin();
         System.out.println("Delete min Red-Black tree " + rbTree);
+
+        rbTree.deleteMax();
+        System.out.println("Delete max Red-Black tree " + rbTree);
 
         System.out.println("Red-Black tree floor of N: " + rbTree.floor('N'));
         System.out.println("Red-Black tree floor of W: " + rbTree.floor('W'));

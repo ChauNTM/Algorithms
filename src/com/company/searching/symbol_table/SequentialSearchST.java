@@ -11,23 +11,24 @@ public class SequentialSearchST<Key, Value> {
       this.value = value;
       this.next = next;
     }
-
-    public Value get(Key key) {
-      for (Node node = first; node != null; node = node.next) {
-        if (key.equals(node.key)) return node.value;
-      }
-
-      return null;
-    }
-
-    public void put(Key key, Value value) {
-      for (Node node = first; node != null; node = node.next) {
-        if (key.equals(node.key)) {
-          node.value = value;
-          return;
-        }
-      }
-      first = new Node(key, value, first);
-    }
   }
+
+  public Value get(Key key) {
+    for (Node node = first; node != null; node = node.next) {
+      if (key.equals(node.key)) return node.value;
+    }
+
+    return null;
+  }
+
+  public void put(Key key, Value value) {
+    for (Node node = first; node != null; node = node.next) {
+      if (key.equals(node.key)) {
+        node.value = value;
+        return;
+      }
+    }
+    first = new Node(key, value, first);
+  }
+
 }
