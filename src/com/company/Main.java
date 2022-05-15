@@ -22,7 +22,7 @@ public class Main {
     }
 
     private static void testHashTable() {
-        HashTable<Character, Integer> st = new LinearProbingHashST<>();
+        HashTable<Character, Integer> st = new LinearProbingHashST<>(23);
         st.put('A', 18);
         st.put('B', 180);
         st.put('Z', 23);
@@ -30,10 +30,17 @@ public class Main {
         st.put('L', 3);
         st.put('T', 5);
         st.put('K', 120);
+        st.put('U', 110);
+        st.put('H', 23);
+        st.put('O', 20);
 
+        System.out.println("Hashtable: " + st);
         System.out.println("Hashtable search result: " + st.get('K'));
         st.delete('K');
-        System.out.println("Hashtable search result: " + st.get('K'));
+        System.out.println("Hashtable after delete K: " + st);
+        st.delete('A');
+        System.out.println("Hashtable after delete A: " + st);
+
     }
 
     private static void testSort() {
