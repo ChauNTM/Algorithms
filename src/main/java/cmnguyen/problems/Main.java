@@ -2,11 +2,12 @@ package main.java.cmnguyen.problems;
 
 import main.java.cmnguyen.problems.easy.PalindromeNumber;
 import main.java.cmnguyen.problems.easy.TwoSum;
+import main.java.cmnguyen.problems.medium.AddTwoNumbers;
 
 public class Main {
 
     public static void main(String[] args) {
-        testPalindromeNumber();
+        testTwoNumbers();
     }
 
     private static void testPalindromeNumber() {
@@ -28,6 +29,33 @@ public class Main {
         else {
             System.out.println("2 sum with target " + target + ": {" + result[0] + ", " + result[1] + "}");
         }
+    }
+
+    private static void testTwoNumbers() {
+        int[] arr1 = new int[] {9,9,9,9,9,9,9};
+        int[] arr2 = new int[] {9,9,9,9};
+
+        AddTwoNumbers.ListNode l1 = fromArray(arr1);
+        AddTwoNumbers.ListNode l2 = fromArray(arr2);
+        System.out.println("list 1 " + l1);
+        System.out.println("list 2 " + l2);
+        System.out.println("sum " + AddTwoNumbers.addTwoNumbers(l1, l2));
+    }
+
+    static private AddTwoNumbers.ListNode fromArray(int[] arr) {
+        AddTwoNumbers.ListNode head = null;
+        AddTwoNumbers.ListNode tail = null;
+        for (int j : arr) {
+            if (head == null) {
+                head = new AddTwoNumbers.ListNode(j);
+                tail = head;
+            } else {
+                System.out.println("tail.next" + tail.val);
+                tail.next = new AddTwoNumbers.ListNode(j);
+                tail = tail.next;
+            }
+        }
+        return head;
     }
 
 }
