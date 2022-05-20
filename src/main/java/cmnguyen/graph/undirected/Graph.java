@@ -1,4 +1,4 @@
-package main.java.cmnguyen.graph;
+package main.java.cmnguyen.graph.undirected;
 
 import java.util.ArrayList;
 
