@@ -1,13 +1,14 @@
 package main.java.cmnguyen.problems;
 
 import main.java.cmnguyen.problems.easy.PalindromeNumber;
+import main.java.cmnguyen.problems.easy.RomanToInteger;
 import main.java.cmnguyen.problems.easy.TwoSum;
 import main.java.cmnguyen.problems.medium.AddTwoNumbers;
 
 public class Main {
 
     public static void main(String[] args) {
-        testTwoNumbers();
+        testRomanToInteger();
     }
 
     private static void testPalindromeNumber() {
@@ -56,6 +57,11 @@ public class Main {
             }
         }
         return head;
+    }
+
+    static private void testRomanToInteger() {
+        String roman = "MMMCMXCIX";
+        System.out.println("integer from roman " + RomanToInteger.romanToInt(roman));
     }
 
 }

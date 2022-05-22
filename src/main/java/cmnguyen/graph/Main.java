@@ -25,7 +25,8 @@ public class Main {
 //        System.out.println("graph " + bipartiteGraph);
 //        testBipartite(bipartiteGraph);
 
-        testSymbolGraph();
+//        testSymbolGraph();
+        degreeOfSeparation();
 
     }
 
@@ -87,6 +88,24 @@ public class Main {
         String source = "Bambi (1942)";
         for (int w: g.adj(sg.index(source))) {
             System.out.println("Vertices connect to source " + source + " " + sg.name(w));
+        }
+    }
+
+    static void degreeOfSeparation() {
+        String fileName = "movie.txt";
+        SymbolGraph sg = new SymbolGraph(fileName, "/");
+
+        Graph graph = sg.graph();
+        String source = "Bacon, Kevin";
+        if (!sg.contains(source)) System.out.println(source + " doesn't belong to the graph");
+        int sourceVertex = sg.index(source);
+        BreadthFirstPaths bfs = new BreadthFirstPaths(graph, sourceVertex);
+        String target = "Bermingham, Reverend Thomas";
+        int targetVertex = sg.index(target);
+        if (bfs.hasPathTo(targetVertex)) {
+            for(int w: bfs.pathTo(targetVertex)) {
+                System.out.println("   " + sg.name(w));
+            }
         }
     }
 

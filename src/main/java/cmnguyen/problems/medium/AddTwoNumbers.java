@@ -63,6 +63,7 @@ public class AddTwoNumbers {
         if (value > 0) {
             tail.next = new ListNode(value);
         }
+        // magic here: return dummy.next instead of dummy
         return dummy.next;
     }
 }
