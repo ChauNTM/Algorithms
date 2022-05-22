@@ -25,6 +25,10 @@ public class SequentialSearchST<Key, Value> {
     return null;
   }
 
+  public int size() {
+    return n;
+  }
+
   public void put(Key key, Value value) {
     for (Node node = first; node != null; node = node.next) {
       if (key.equals(node.key)) {

@@ -5,25 +5,28 @@ import main.java.cmnguyen.graph.undirected.*;
 public class Main {
 
     public static void main(String[] args) {
-        Graph graph = GraphReader.readGraph("graph.txt");
-        System.out.println("graph " + graph);
+//        Graph graph = GraphReader.readGraph("graph.txt");
+//        System.out.println("graph " + graph);
+//
+//        testDFSPaths(graph);
+//        System.out.println();
+//        testBFSPaths(graph);
+//        System.out.println();
+//
+//        Graph graph1 = GraphReader.readGraph("graph1.txt");
+//        System.out.println("graph " + graph1);
+//        testConnectedComponents(graph1);
+//
+//        Graph noCycleGraph = GraphReader.readGraph("graph_no_cycle.txt");
+//        System.out.println("graph " + noCycleGraph);
+//        testCycle(noCycleGraph);
+//
+//        Graph bipartiteGraph = GraphReader.readGraph("bipartite.txt");
+//        System.out.println("graph " + bipartiteGraph);
+//        testBipartite(bipartiteGraph);
 
-        testDFSPaths(graph);
-        System.out.println();
-        testBFSPaths(graph);
-        System.out.println();
+        testSymbolGraph();
 
-        Graph graph1 = GraphReader.readGraph("graph1.txt");
-        System.out.println("graph " + graph1);
-        testConnectedComponents(graph1);
-
-        Graph noCycleGraph = GraphReader.readGraph("graph_no_cycle.txt");
-        System.out.println("graph " + noCycleGraph);
-        testCycle(noCycleGraph);
-
-        Graph bipartiteGraph = GraphReader.readGraph("bipartite.txt");
-        System.out.println("graph " + bipartiteGraph);
-        testBipartite(bipartiteGraph);
     }
 
     static void testDFSPaths(Graph graph) {
@@ -70,9 +73,21 @@ public class Main {
         Cycle cycle = new Cycle(graph);
         System.out.println("Does graph has cycle: " + cycle.hasCycle());
     }
+
     static void testBipartite(Graph graph) {
         Bipartite bipartite = new Bipartite(graph);
         System.out.println("Is graph bipartite: " + bipartite.isBipartite());
+    }
+
+    static void testSymbolGraph() {
+        String fileName = "movie.txt";
+        SymbolGraph sg = new SymbolGraph(fileName, "/");
+
+        Graph g = sg.graph();
+        String source = "Bambi (1942)";
+        for (int w: g.adj(sg.index(source))) {
+            System.out.println("Vertices connect to source " + source + " " + sg.name(w));
+        }
     }
 
 }
