@@ -1,4 +1,4 @@
-package main.java.cmnguyen.graph.undirected;
+package main.java.cmnguyen.graph.undigraph;
 
 import main.java.cmnguyen.searching.symbol_table.SequentialSearchST;
 

@@ -1,17 +1,22 @@
-package main.java.cmnguyen.graph.undirected;
+package main.java.cmnguyen.graph.digraph;
 
-import java.io.*;
+import main.java.cmnguyen.graph.undigraph.GraphReader;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
-public class GraphReader {
-    public static Graph readGraph(String fileName) {
+public class DigraphReader {
+    public static Digraph readGraph(String fileName) {
         BufferedReader reader = null;
         try {
             InputStream is = GraphReader.class.getClassLoader().getResourceAsStream(fileName);
             reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
             int V = Integer.parseInt(reader.readLine());
             int E = Integer.parseInt(reader.readLine());
-            Graph graph = new Graph(V);
+            Digraph graph = new Digraph(V);
             String line;
             while((line = reader.readLine()) != null) {
                 String[] edges = line.split(" ");

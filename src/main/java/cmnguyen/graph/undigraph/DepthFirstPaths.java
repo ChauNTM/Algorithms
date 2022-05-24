@@ -1,4 +1,4 @@
-package main.java.cmnguyen.graph.undirected;
+package main.java.cmnguyen.graph.undigraph;
 
 public class DepthFirstPaths extends Paths {
     public DepthFirstPaths(Graph graph, int v) {

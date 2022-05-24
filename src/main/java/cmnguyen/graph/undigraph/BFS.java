@@ -1,25 +1,26 @@
-package main.java.cmnguyen.graph.undirected;
+package main.java.cmnguyen.graph.undigraph;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BreadthFirstPaths extends Paths {
+public class BFS {
+    boolean[] marked;
+    int[] edgeTo;
 
-    public BreadthFirstPaths(Graph graph, int s) {
-        super(graph, s);
-        bfs(graph, s);
+    public BFS(Graph graph, int v) {
+        bfs(graph, v);
     }
 
     private void bfs(Graph graph, int s) {
         Queue<Integer> queue = new LinkedList<>();
-        queue.add(s);
         marked[s] = true;
+        queue.add(s);
         while (!queue.isEmpty()) {
-            int v = queue.remove();
-            for (int w: graph.adj(v)) {
+            int v = queue.poll();
+            for (int w : graph.adj(v)) {
                 if (!marked[w]) {
-                    marked[w] = true;
                     edgeTo[w] = v;
+                    marked[w] = true;
                     queue.add(w);
                 }
             }
