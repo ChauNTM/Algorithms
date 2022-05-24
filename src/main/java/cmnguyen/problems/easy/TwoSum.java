@@ -13,6 +13,7 @@ import java.util.Map;
 
 public class TwoSum {
     public int[] twoSum(int[] a, int target) {
+        // Use hash map <Number, Index>, so O(n) for worst case
         Map<Integer, Integer> hashMap = new HashMap<>();
         for (int i=0; i<a.length; i++) {
             int number = target - a[i];

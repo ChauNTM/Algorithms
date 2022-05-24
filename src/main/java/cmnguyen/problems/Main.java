@@ -1,14 +1,17 @@
 package main.java.cmnguyen.problems;
 
-import main.java.cmnguyen.problems.easy.PalindromeNumber;
-import main.java.cmnguyen.problems.easy.RomanToInteger;
-import main.java.cmnguyen.problems.easy.TwoSum;
+import com.sun.source.tree.Tree;
+import main.java.cmnguyen.problems.easy.*;
 import main.java.cmnguyen.problems.medium.AddTwoNumbers;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        testRomanToInteger();
+        testSymmetricTree();
     }
 
     private static void testPalindromeNumber() {
@@ -62,6 +65,24 @@ public class Main {
     static private void testRomanToInteger() {
         String roman = "MMMCMXCIX";
         System.out.println("integer from roman " + RomanToInteger.romanToInt(roman));
+    }
+
+    static private void testValidParentheses() {
+        String str = "{[]}{{{()[]}}}";
+        System.out.println("result " + ValidParentheses.isValid(str));
+    }
+
+    static private void testSymmetricTree() {
+        List<Integer> arrays = Arrays.asList(1,2,2,null,3,null,3);
+        SymmetricTree.TreeNode node = SymmetricTree.initBinaryTree(arrays);
+        System.out.println("Binary tree: " + SymmetricTree.println(node));
+        System.out.println("is Symmetric " + SymmetricTree.isSymmetric(node));
+
+        List<Integer> arrays1 = Arrays.asList(1,2,2,3,4,4,3,5,6,7,null,null,7,6,5,9);
+        SymmetricTree.TreeNode node1 = SymmetricTree.initBinaryTree(arrays1);
+        System.out.println("Binary tree: " + SymmetricTree.println(node1));
+        System.out.println("is Symmetric " + SymmetricTree.isSymmetric(node1));
+
     }
 
 }
