@@ -1,9 +1,9 @@
 package main.java.cmnguyen.graph.digraph;
 
-import java.util.Stack;
+import java.util.List;
 
 public class Topological {
-    private Stack<Integer> order;
+    private List<Integer> order;
 
     public Topological(Digraph graph) {
         DirectedCycle directedCycle = new DirectedCycle(graph);
@@ -17,7 +17,7 @@ public class Topological {
         return order == null;
     }
 
-    public Stack<Integer> order() {
+    public List<Integer> order() {
         return order;
     }
 }

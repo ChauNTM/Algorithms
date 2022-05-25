@@ -12,7 +12,7 @@ public class Digraph {
         this.V = V;
         this.E = 0;
         adj = new List[V];
-        for (int i=0; i < V; i++) {
+        for (int i = 0; i < V; i++) {
             adj[i] = new ArrayList<>();
         }
     }
@@ -37,7 +37,7 @@ public class Digraph {
     public Digraph reverse() {
         Digraph g = new Digraph(this.V);
         for (int v = 0; v < V; v++) {
-            for (int w: adj[v]) {
+            for (int w : adj[v]) {
                 g.addEdge(w, v);
             }
         }
@@ -46,7 +46,7 @@ public class Digraph {
 
     public String toString() {
         String s = V + " vertices, " + E + " edges\n";
-        for (int v=0; v < V; v++) {
+        for (int v = 0; v < V; v++) {
             s += v + ": ";
             for (int w : this.adj(v)) {
                 s += w + " ";

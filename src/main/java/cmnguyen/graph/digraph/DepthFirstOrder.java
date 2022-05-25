@@ -1,8 +1,6 @@
 package main.java.cmnguyen.graph.digraph;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class DepthFirstOrder {
     private Queue<Integer> preOrdered;
@@ -40,8 +38,10 @@ public class DepthFirstOrder {
         return postOrdered;
     }
 
-    public Stack<Integer> revertedPost() {
-        return revertPostOrdered;
+    public List<Integer> revertedPost() {
+        List<Integer> list = new ArrayList<>(revertPostOrdered);
+        Collections.reverse(list);
+        return list;
     }
 
 }

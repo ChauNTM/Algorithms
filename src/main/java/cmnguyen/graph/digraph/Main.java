@@ -7,7 +7,7 @@ import java.util.Stack;
 public class Main {
 
     public static void main(String[] args) {
-        testTopological();
+        testKosarajuSCC();
     }
 
     static void testDirectedDFS() {
@@ -36,10 +36,17 @@ public class Main {
         Digraph dg = DigraphReader.readGraph("noCycleDG.txt");
         System.out.println("Digraph " + dg);
         Topological topological = new Topological(dg);
-        Stack<Integer> cycle = topological.order();
-        int[] edges = new int[cycle.size()];
-        int i = 0;
-        while (!cycle.isEmpty()) edges[i++] = cycle.pop();
-        System.out.println("Topological " + Arrays.toString(edges));
+        List<Integer> cycle = topological.order();
+        System.out.println("Topological " + cycle);
     }
+
+    static void testKosarajuSCC() {
+        Digraph dg = DigraphReader.readGraph("kosaraju.txt");
+        System.out.println("Digraph: " + dg);
+        KosarajuSCC scc = new KosarajuSCC(dg);
+        System.out.println(scc.count() + " components");
+        System.out.println("ids " + Arrays.toString(scc.id));
+    }
+
+
 }
