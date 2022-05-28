@@ -2,7 +2,7 @@ package main.java.cmnguyen.sorting;
 
 import main.java.cmnguyen.sorting.heapsort.HeapSort;
 import main.java.cmnguyen.sorting.heapsort.IndexMinPQ;
-import main.java.cmnguyen.sorting.heapsort.MaxPQ;
+import main.java.cmnguyen.sorting.heapsort.MinPQ;
 import main.java.cmnguyen.sorting.mergesort.HeapSort1;
 import main.java.cmnguyen.sorting.quicksort.QuickSort;
 import main.java.cmnguyen.sorting.quicksort.QuickSort3Way;
@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        testIndexPQ();
+        testPriorityQueue();
     }
 
     private static void testSort() {
@@ -32,7 +32,7 @@ public class Main {
     }
 
     private static void testPriorityQueue() {
-        MaxPQ<Integer> queue = new MaxPQ<>(100);
+        MinPQ<Integer> queue = new MinPQ<>(100);
         queue.insert(2);
         queue.insert(50);
         queue.insert(611);
@@ -41,12 +41,12 @@ public class Main {
         queue.insert(12);
         System.out.println("Priority queue");
         System.out.println(queue);
-        queue.delMax();
+        queue.delMin();
         queue.insert(101);
-        queue.delMax();
+        queue.delMin();
         queue.insert(-34);
         queue.insert(134);
-        queue.delMax();
+        queue.delMin();
         System.out.println("Result: Priority queue");
         System.out.println(queue);
     }

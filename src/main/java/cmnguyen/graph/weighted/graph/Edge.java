@@ -1,6 +1,6 @@
 package main.java.cmnguyen.graph.weighted.graph;
 
-public class Edge {
+public class Edge implements Comparable<Edge> {
     private final int v;
     private final int w;
     private final double weight;
@@ -25,6 +25,7 @@ public class Edge {
         return weight;
     }
 
+    @Override
     public int compareTo(Edge that) {
         if (this.weight < that.weight) return -1;
         else if (this.weight > that.weight) return 1;

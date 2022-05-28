@@ -1,11 +1,20 @@
 package main.java.cmnguyen.sorting.heapsort;
 
-public class MaxPQ<Key extends Comparable<Key>> {
+import java.util.List;
+
+public class MinPQ<Key extends Comparable<Key>> {
   private Key[] pq;
   private int size = 0;
 
-  public MaxPQ(int maxN) {
+  public MinPQ(int maxN) {
     pq = (Key[]) new Comparable[maxN + 1];
+  }
+
+  public MinPQ(Iterable<Key> keys, int maxN) {
+    this(maxN);
+    for (Key key: keys) {
+      insert(key);
+    }
   }
 
   public boolean isEmpty() {
@@ -21,7 +30,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
     swim(size);
   }
 
-  public Key delMax() {
+  public Key delMin() {
     Key max = pq[1];
     exchange(1, size);
     pq[size] = null;
@@ -30,8 +39,8 @@ public class MaxPQ<Key extends Comparable<Key>> {
     return max;
   }
 
-  private boolean less(int i, int j) {
-    return pq[i].compareTo(pq[j]) < 0;
+  private boolean greater(int i, int j) {
+    return pq[i].compareTo(pq[j]) > 0;
   }
 
   private void exchange(int i, int j) {
@@ -41,7 +50,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
   }
 
   private void swim(int k) {
-    while (k > 1 && less(k / 2, k)) {
+    while (k > 1 && greater(k / 2, k)) {
       exchange(k, k / 2);
       k = k / 2;
     }
@@ -50,8 +59,8 @@ public class MaxPQ<Key extends Comparable<Key>> {
   private void sink(int k) {
     while (2 * k < size) {
       int j = 2 * k;
-      if (j < size && less(j, j + 1)) ++j;
-      if (!less(k, j)) break;
+      if (j < size && greater(j, j + 1)) ++j;
+      if (!greater(k, j)) break;
       exchange(k, j);
       k = j;
     }

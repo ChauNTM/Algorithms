@@ -12,13 +12,13 @@ public class WeightedUnionFind extends UnionFind {
     }
 
     @Override
-    int find(int p) {
+    public int find(int p) {
         while(id[p] != p) p = id[p];
         return p;
     }
 
     @Override
-    void union(int p, int q) {
+    public void union(int p, int q) {
         int pRoot = find(p);
         int qRoot = find(q);
 

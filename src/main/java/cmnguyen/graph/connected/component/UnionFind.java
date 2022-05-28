@@ -23,7 +23,7 @@ public abstract class UnionFind {
         return find(p) == find(q);
     }
 
-    abstract int find(int p);
-    abstract void union(int p, int q);
+    public abstract int find(int p);
+    public abstract void union(int p, int q);
 
 }
