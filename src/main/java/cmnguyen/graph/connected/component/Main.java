@@ -7,8 +7,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         int N = 10;
-        UnionFind uf = new QuickUnion(N);
-        int[] adj = new int[] {4, 3, 3, 8, 6, 5, 9, 4, 2, 1, 5, 0, 7, 2, 6, 1 };
+        UnionFind uf = new WeightedUnionFind(N);
+        int[] adj = new int[] { 4, 3, 3, 8, 6, 5, 9, 4, 2, 1, 8, 9, 5, 0, 7, 2, 6, 1, 1, 0, 6, 7 };
         for (int i=0; i<adj.length; i=i+2)
         {
             int p = adj[i];

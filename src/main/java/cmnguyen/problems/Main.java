@@ -1,17 +1,16 @@
 package main.java.cmnguyen.problems;
 
-import com.sun.source.tree.Tree;
 import main.java.cmnguyen.problems.easy.*;
+import main.java.cmnguyen.problems.easy.data.structure.TreeNode;
 import main.java.cmnguyen.problems.medium.AddTwoNumbers;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        testSymmetricTree();
+        testSameTree();
     }
 
     private static void testPalindromeNumber() {
@@ -74,14 +73,30 @@ public class Main {
 
     static private void testSymmetricTree() {
         List<Integer> arrays = Arrays.asList(1,2,2,null,3,null,3);
-        SymmetricTree.TreeNode node = SymmetricTree.initBinaryTree(arrays);
+        TreeNode node = TreeNode.initBinaryTree(arrays);
         System.out.println("Binary tree: " + SymmetricTree.println(node));
         System.out.println("is Symmetric " + SymmetricTree.isSymmetric(node));
 
-        List<Integer> arrays1 = Arrays.asList(1,2,2,3,4,4,3,5,6,7,null,null,7,6,5,9);
-        SymmetricTree.TreeNode node1 = SymmetricTree.initBinaryTree(arrays1);
+        List<Integer> arrays1 = Arrays.asList(1,2,2,3,4,4,3,5,6,7,null,null,7,6,5);
+        TreeNode node1 = TreeNode.initBinaryTree(arrays1);
         System.out.println("Binary tree: " + SymmetricTree.println(node1));
         System.out.println("is Symmetric " + SymmetricTree.isSymmetric(node1));
+
+    }
+
+    static void testSqrt() {
+        int x = 2147395599;
+        System.out.println("Sqrt(" + x + ") = " + Sqrt.mySqrt(x));
+    }
+
+    static private void testSameTree() {
+        List<Integer> arrays = Arrays.asList(1,2);
+        TreeNode p = TreeNode.initBinaryTree(arrays);
+
+        List<Integer> arrays1 = Arrays.asList(1,2);
+        TreeNode q = TreeNode.initBinaryTree(arrays1);
+
+        System.out.println("Are the same trees: " + SameTree.isSameTree(p, q));
 
     }
 

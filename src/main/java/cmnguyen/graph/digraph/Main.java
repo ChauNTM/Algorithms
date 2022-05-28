@@ -48,5 +48,4 @@ public class Main {
         System.out.println("ids " + Arrays.toString(scc.id));
     }
 
-
 }
