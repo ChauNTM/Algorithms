@@ -3,6 +3,7 @@ package main.java.cmnguyen.problems;
 import main.java.cmnguyen.problems.easy.*;
 import main.java.cmnguyen.problems.easy.data.structure.TreeNode;
 import main.java.cmnguyen.problems.medium.AddTwoNumbers;
+import main.java.cmnguyen.problems.medium.ThreeSum;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        testSameTree();
+        test3Sum();
     }
 
     private static void testPalindromeNumber() {
@@ -98,6 +99,33 @@ public class Main {
 
         System.out.println("Are the same trees: " + SameTree.isSameTree(p, q));
 
+    }
+
+    static private void testPathSum() {
+        List<Integer> arrays = Arrays.asList(5,4,8,11,null,13,4,7,2,null,null,null,1);
+        TreeNode p = TreeNode.initBinaryTree(arrays);
+        System.out.println("Tree has path sum: " + PathSum.hasPathSum(p, 22));
+
+        arrays = Arrays.asList(1);
+        p = TreeNode.initBinaryTree(arrays);
+        System.out.println("Tree has path sum: " + PathSum.hasPathSum(p, 1));
+
+        arrays = Arrays.asList(1, 2);
+        p = TreeNode.initBinaryTree(arrays);
+        System.out.println("Tree has path sum: " + PathSum.hasPathSum(p, 1));
+
+        arrays = Arrays.asList(1,2,null,3,null,4,null,5);
+        p = TreeNode.initBinaryTree(arrays);
+        System.out.println("Tree has path sum: " + PathSum.hasPathSum(p, 6));
+    }
+
+    static private void test3Sum() {
+        int[] nums = new int[]{-1,0,1,2,-1,-4,-2,-3,3,0,4};
+        List<List<Integer>> result = ThreeSum.threeSum(nums);
+        System.out.println("Result: " + result);
+
+        nums = new int[]{0,0,0,0};
+        System.out.println("Result: " + ThreeSum.threeSum(nums));
     }
 
 }

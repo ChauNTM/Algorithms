@@ -1,7 +1,5 @@
 package main.java.cmnguyen.problems.easy;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Stack;
 
 /**
