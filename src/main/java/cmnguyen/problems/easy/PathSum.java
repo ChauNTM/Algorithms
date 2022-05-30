@@ -1,6 +1,6 @@
 package main.java.cmnguyen.problems.easy;
 
-import main.java.cmnguyen.problems.easy.data.structure.TreeNode;
+import main.java.cmnguyen.problems.structure.TreeNode;
 
 /**
 * Given the root of a binary tree and an integer targetSum, return true if the tree has a root-to-leaf path such that adding up all the values along the path equals targetSum.

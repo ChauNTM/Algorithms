@@ -1,10 +1,9 @@
 package main.java.cmnguyen.problems;
 
 import main.java.cmnguyen.problems.easy.*;
-import main.java.cmnguyen.problems.easy.data.structure.TreeNode;
-import main.java.cmnguyen.problems.medium.AddTwoNumbers;
-import main.java.cmnguyen.problems.medium.FourSum;
-import main.java.cmnguyen.problems.medium.ThreeSum;
+import main.java.cmnguyen.problems.medium.*;
+import main.java.cmnguyen.problems.structure.ListNode;
+import main.java.cmnguyen.problems.structure.TreeNode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,7 +12,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        test4Sum();
+        reverseInteger();
     }
 
     private static void testPalindromeNumber() {
@@ -41,23 +40,22 @@ public class Main {
         int[] arr1 = new int[] {9,9,9,9,9,9,9};
         int[] arr2 = new int[] {9,9,9,9};
 
-        AddTwoNumbers.ListNode l1 = fromArray(arr1);
-        AddTwoNumbers.ListNode l2 = fromArray(arr2);
+        ListNode l1 = fromArray(arr1);
+        ListNode l2 = fromArray(arr2);
         System.out.println("list 1 " + l1);
         System.out.println("list 2 " + l2);
         System.out.println("sum " + AddTwoNumbers.addTwoNumbers(l1, l2));
     }
 
-    static private AddTwoNumbers.ListNode fromArray(int[] arr) {
-        AddTwoNumbers.ListNode head = null;
-        AddTwoNumbers.ListNode tail = null;
+    static private ListNode fromArray(int[] arr) {
+        ListNode head = null;
+        ListNode tail = null;
         for (int j : arr) {
             if (head == null) {
-                head = new AddTwoNumbers.ListNode(j);
+                head = new ListNode(j);
                 tail = head;
             } else {
-                System.out.println("tail.next" + tail.val);
-                tail.next = new AddTwoNumbers.ListNode(j);
+                tail.next = new ListNode(j);
                 tail = tail.next;
             }
         }
@@ -148,6 +146,30 @@ public class Main {
         nums = new int[]{2,2,2,2,2};
         System.out.println("Result: " + FourSum.fourSum(nums, 8));
 
+    }
+
+    static private void removeNthNode() {
+        int[] arr1 = new int[] {1,2,3,4,5};
+        int[] arr2 = new int[] {1};
+        int[] arr3 = new int[] {1, 2};
+
+        ListNode l1 = fromArray(arr1);
+        ListNode l2 = fromArray(arr2);
+        ListNode l3 = fromArray(arr3);
+        System.out.println("list 1 " + RemoveNthNode.removeNthFromEnd2Pointers(l1, 2));
+        System.out.println("list 2 " + RemoveNthNode.removeNthFromEnd2Pointers(l2, 1));
+        System.out.println("list 3 " + RemoveNthNode.removeNthFromEnd2Pointers(l3, 2));
+    }
+
+    static private void reverseInteger() {
+//        int number = -123;
+//        System.out.println("reverse integer: " + ReverseInteger.reverse(number));
+
+        int number = 1534236469;
+        System.out.println("reverse integer: " + ReverseInteger.reverse(number));
+
+        number = -2147483412;
+        System.out.println("reverse integer: " + ReverseInteger.reverse(number));
     }
 
 }

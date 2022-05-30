@@ -1,6 +1,4 @@
-package main.java.cmnguyen.problems.easy.data.structure;
-
-import main.java.cmnguyen.problems.easy.SymmetricTree;
+package main.java.cmnguyen.problems.structure;
 
 import java.util.ArrayList;
 import java.util.List;

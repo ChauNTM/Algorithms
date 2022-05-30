@@ -1,6 +1,6 @@
 package main.java.cmnguyen.problems.easy;
 
-import main.java.cmnguyen.problems.easy.data.structure.TreeNode;
+import main.java.cmnguyen.problems.structure.TreeNode;
 
 /**
  * Given the roots of two binary trees p and q, write a function to check if they are the same or not.

@@ -1,6 +1,6 @@
 package main.java.cmnguyen.problems.easy;
 
-import main.java.cmnguyen.problems.easy.data.structure.TreeNode;
+import main.java.cmnguyen.problems.structure.TreeNode;
 
 /**
  * Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).

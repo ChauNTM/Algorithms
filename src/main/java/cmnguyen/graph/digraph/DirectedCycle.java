@@ -1,5 +1,8 @@
 package main.java.cmnguyen.graph.digraph;
 
+import main.java.cmnguyen.graph.weighted.digraph.DirectedWeighedEdge;
+import main.java.cmnguyen.graph.weighted.digraph.WeightedDigraph;
+
 import java.util.Stack;
 
 public class DirectedCycle {
@@ -16,10 +19,40 @@ public class DirectedCycle {
         }
     }
 
+    public DirectedCycle(WeightedDigraph graph) {
+        marked = new boolean[graph.V()];
+        onStack = new boolean[graph.V()];
+        edgeTo = new int[graph.V()];
+        for (int s = 0; s < graph.V(); s++) {
+            if (!marked[s]) dfs(graph, s);
+        }
+    }
+
     private void dfs(Digraph graph, int v) {
         onStack[v] = true;
         marked[v] = true;
         for (int w: graph.adj(v)) {
+            if (hasCycle()) return;
+            else if (!marked[w]) {
+                edgeTo[w] = v;
+                dfs(graph, w);
+            } else if (onStack[w]) {
+                cycle = new Stack<>();
+                for (int x = v; x != w; x = edgeTo[x]) {
+                    cycle.push(x);
+                }
+                cycle.push(w);
+                cycle.push(v);
+            }
+        }
+        onStack[v] = false;
+    }
+
+    private void dfs(WeightedDigraph graph, int v) {
+        onStack[v] = true;
+        marked[v] = true;
+        for (DirectedWeighedEdge e: graph.adj(v)) {
+            int w = e.to();
             if (hasCycle()) return;
             else if (!marked[w]) {
                 edgeTo[w] = v;
