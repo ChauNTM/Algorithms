@@ -1,8 +1,6 @@
 package main.java.cmnguyen.problems.medium;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]]
@@ -12,6 +10,9 @@ import java.util.List;
 
 public class ThreeSum {
 
+    /**
+     * Solution 1: using 2 pointers in outer loop through every vertices in the array input
+     * */
     public static List<List<Integer>> threeSum(int[] nums) {
         // First, we will sort the input
         Arrays.sort(nums);
@@ -41,5 +42,31 @@ public class ThreeSum {
             }
         }
         return result;
+    }
+
+    /**
+     * Solution 2: O(n2) using HashMap like 2Sum
+     * */
+    public static List<List<Integer>> threeSumHashMap(int[] nums) {
+        Set<List<Integer>> result = new HashSet<>();
+
+        for (int i=0; i<nums.length-1; i++) {
+            Map<Integer, Integer> map = new HashMap<>();
+            for (int j=i+1; j < nums.length; j++) {
+                int value = nums[i] + nums[j];
+                if (map.containsKey(-value)) {
+                    int maybeMin = Math.min(nums[i], nums[j]);
+                    int min = Math.min(maybeMin, -value);
+
+                    int maybeMax = Math.max(nums[i], nums[j]);
+                    int max = Math.max(maybeMax, -value);
+                    result.add(List.of(min, - (min+max), max));
+                } else {
+                    map.put(nums[j], j);
+                }
+            }
+        }
+
+        return new ArrayList<>(result);
     }
 }

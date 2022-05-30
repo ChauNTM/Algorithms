@@ -3,15 +3,17 @@ package main.java.cmnguyen.problems;
 import main.java.cmnguyen.problems.easy.*;
 import main.java.cmnguyen.problems.easy.data.structure.TreeNode;
 import main.java.cmnguyen.problems.medium.AddTwoNumbers;
+import main.java.cmnguyen.problems.medium.FourSum;
 import main.java.cmnguyen.problems.medium.ThreeSum;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        test3Sum();
+        test4Sum();
     }
 
     private static void testPalindromeNumber() {
@@ -121,11 +123,31 @@ public class Main {
 
     static private void test3Sum() {
         int[] nums = new int[]{-1,0,1,2,-1,-4,-2,-3,3,0,4};
-        List<List<Integer>> result = ThreeSum.threeSum(nums);
+        List<List<Integer>> result = ThreeSum.threeSumHashMap(nums);
         System.out.println("Result: " + result);
 
         nums = new int[]{0,0,0,0};
-        System.out.println("Result: " + ThreeSum.threeSum(nums));
+        System.out.println("Result: " + ThreeSum.threeSumHashMap(nums));
+
+        nums = new int[]{-1,0,1,2,-1,-4};
+        System.out.println("Result: " + ThreeSum.threeSumHashMap(nums));
+
+        ArrayList<Integer> list1 = new ArrayList<>();
+        list1.add(0);
+        list1.add(-1);
+        list1.add(1);
+
+        System.out.println("hashcode: " + List.of(-1, 1, 0).hashCode() + " hashcode2 = " + list1.hashCode());
+    }
+
+    static private void test4Sum() {
+        int[] nums = new int[]{1,0,-1,0,-2,2};
+        List<List<Integer>> result = FourSum.fourSum(nums, 0);
+        System.out.println("Result: " + result);
+
+        nums = new int[]{2,2,2,2,2};
+        System.out.println("Result: " + FourSum.fourSum(nums, 8));
+
     }
 
 }
