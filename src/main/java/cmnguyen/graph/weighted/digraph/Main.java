@@ -27,4 +27,5 @@ public class Main {
             System.out.println("AcyclicSP shortest path - total weight for " + i  + ": " + sp.distTo(i));
         }
     }
+
 }
