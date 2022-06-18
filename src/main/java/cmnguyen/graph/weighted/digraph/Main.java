@@ -3,7 +3,7 @@ package main.java.cmnguyen.graph.weighted.digraph;
 public class Main {
 
     public static void main(String[] args) {
-        testBellmanFordSP();
+        testDijkstraSP();
     }
 
     static void testDijkstraSP() {

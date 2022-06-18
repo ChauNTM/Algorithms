@@ -1,25 +1,25 @@
-package main.java.cmnguyen.graph.digraph;
+package main.java.cmnguyen.string.regex;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
-public class DigraphReader {
-    public static Digraph readGraph(String fileName) {
+public class GREP {
+    public static void main(String[] args) {
         BufferedReader reader = null;
+        String fileName = "tinyL.txt";
+        NFA nfa = new NFA("(A*B|AC)D");
         try {
             reader = new BufferedReader(new FileReader("src/main/resources/" + fileName));
-            int V = Integer.parseInt(reader.readLine());
-            int E = Integer.parseInt(reader.readLine());
-            Digraph graph = new Digraph(V);
+
             String line;
             while((line = reader.readLine()) != null) {
-                String[] edges = line.split(" ");
-                graph.addEdge(Integer.parseInt(edges[0]), Integer.parseInt(edges[1]));
+                if (nfa.recognizes(line)) System.out.println(line);
             }
-            return graph;
 
         } catch (Exception ex) {
             System.out.println("Exception while reading file " + ex);
+            ex.printStackTrace();
         } finally {
             try {
                 if (reader != null) {
@@ -29,8 +29,6 @@ public class DigraphReader {
                 // handle an exception, or often we just ignore it
             }
         }
-
-        return null;
 
     }
 }

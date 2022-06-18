@@ -1,17 +1,14 @@
 package main.java.cmnguyen.graph.weighted.digraph;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 
 public class WeightedDigraphReader {
     public static WeightedDigraph readGraph(String fileName) {
         BufferedReader reader = null;
         try {
-            InputStream is = WeightedDigraph.class.getClassLoader().getResourceAsStream(fileName);
-            reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+            reader = new BufferedReader(new FileReader("src/main/resources/" + fileName));
             int V = Integer.parseInt(reader.readLine());
             int E = Integer.parseInt(reader.readLine());
             WeightedDigraph graph = new WeightedDigraph(V);

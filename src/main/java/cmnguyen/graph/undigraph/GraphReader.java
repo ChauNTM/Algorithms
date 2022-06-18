@@ -1,14 +1,14 @@
 package main.java.cmnguyen.graph.undigraph;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class GraphReader {
     public static Graph readGraph(String fileName) {
         BufferedReader reader = null;
         try {
-            InputStream is = GraphReader.class.getClassLoader().getResourceAsStream(fileName);
-            reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+            reader = new BufferedReader(new FileReader("src/main/resources/" + fileName));
             int V = Integer.parseInt(reader.readLine());
             int E = Integer.parseInt(reader.readLine());
             Graph graph = new Graph(V);

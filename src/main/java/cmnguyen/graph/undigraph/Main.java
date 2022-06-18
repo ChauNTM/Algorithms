@@ -3,27 +3,27 @@ package main.java.cmnguyen.graph.undigraph;
 public class Main {
 
     public static void main(String[] args) {
-//        Graph graph = GraphReader.readGraph("graph.txt");
-//        System.out.println("graph " + graph);
-//
-//        testDFSPaths(graph);
-//        System.out.println();
-//        testBFSPaths(graph);
-//        System.out.println();
-//
-//        Graph graph1 = GraphReader.readGraph("graph1.txt");
-//        System.out.println("graph " + graph1);
-//        testConnectedComponents(graph1);
-//
-//        Graph noCycleGraph = GraphReader.readGraph("graph_no_cycle.txt");
-//        System.out.println("graph " + noCycleGraph);
-//        testCycle(noCycleGraph);
-//
-//        Graph bipartiteGraph = GraphReader.readGraph("bipartite.txt");
-//        System.out.println("graph " + bipartiteGraph);
-//        testBipartite(bipartiteGraph);
+        Graph graph = GraphReader.readGraph("graph.txt");
+        System.out.println("graph " + graph);
 
-//        testSymbolGraph();
+        testDFSPaths(graph);
+        System.out.println();
+        testBFSPaths(graph);
+        System.out.println();
+
+        Graph graph1 = GraphReader.readGraph("graph1.txt");
+        System.out.println("graph " + graph1);
+        testConnectedComponents(graph1);
+
+        Graph noCycleGraph = GraphReader.readGraph("graph_no_cycle.txt");
+        System.out.println("graph " + noCycleGraph);
+        testCycle(noCycleGraph);
+
+        Graph bipartiteGraph = GraphReader.readGraph("bipartite.txt");
+        System.out.println("graph " + bipartiteGraph);
+        testBipartite(bipartiteGraph);
+
+        testSymbolGraph();
         degreeOfSeparation();
 
     }

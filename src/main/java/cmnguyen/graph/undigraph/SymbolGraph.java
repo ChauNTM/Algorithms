@@ -3,6 +3,7 @@ package main.java.cmnguyen.graph.undigraph;
 import main.java.cmnguyen.searching.symbol_table.SequentialSearchST;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
@@ -14,9 +15,10 @@ public class SymbolGraph {
 
     public SymbolGraph(String fileName, String sp) {
         st = new SequentialSearchST<>();
-        InputStream is = GraphReader.class.getClassLoader().getResourceAsStream(fileName);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+        BufferedReader reader = null;
         try {
+            reader = new BufferedReader(new FileReader("src/main/resources/" + fileName));
+
             String line;
             while((line = reader.readLine()) != null) {
                 String[] edges = line.split(sp);
@@ -34,16 +36,15 @@ public class SymbolGraph {
             System.out.println("Exception when read from reader" + ex);
         } finally {
             try {
-                reader.close();
+                if (reader != null) reader.close();
             } catch (Exception ex) {
                 System.out.println("Exception when close reader");
             }
         }
 
-        is = GraphReader.class.getClassLoader().getResourceAsStream(fileName);
-        reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
         g = new Graph(st.size());
         try {
+            reader = new BufferedReader(new FileReader("src/main/resources/" + fileName));
             String line;
             while((line = reader.readLine()) != null) {
                 String[] vertices = line.split(sp);
