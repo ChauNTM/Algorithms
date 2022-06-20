@@ -1,7 +1,8 @@
 package main.java.cmnguyen.graph.digraph;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class DigraphReader {
     public static Digraph readGraph(String fileName) {
