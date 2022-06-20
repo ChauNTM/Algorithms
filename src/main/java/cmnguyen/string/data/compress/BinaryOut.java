@@ -37,7 +37,7 @@ public class BinaryOut {
         buffer = 0;
     }
 
-    private void writeBit(boolean x) {
+    public void writeBit(boolean x) {
         // add bit to buffer
         buffer <<= 1;
         if (x) buffer |= 1;
