@@ -104,6 +104,17 @@ public class BinaryIn {
         return x;
     }
 
+    public String readString() throws IOException {
+        if (isEmpty()) throw new IOException("Reading from empty input stream");
+
+        StringBuilder builder = new StringBuilder();
+        while (!isEmpty()) {
+            char c = readChar();
+            builder.append(c);
+        }
+        return builder.toString();
+    }
+
     public int readInt(int r) throws IOException {
         if (isEmpty()) throw new IOException("Reading from empty input stream");
 

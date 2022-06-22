@@ -67,7 +67,7 @@ public class Main {
         String key = "see";
         System.out.println("Value of key " + key + " : " + tst.get(key));
 
-        String longestPrefix = "shelters";
+        String longestPrefix = "cat";
         System.out.printf("Longest prefix of %s which is found in TST %s \n",
                 longestPrefix,
                 tst.longestPrefixOf(longestPrefix));

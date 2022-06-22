@@ -50,13 +50,13 @@ public class BinaryOut {
         if (n == 0) {
             try {
                 out.write(x);
-                return;
             } catch (IOException ex) {
                 System.out.println("Exception when while writing buffer to output stream" + ex);
             }
+            return;
         }
 
-        for (int i = 0; i < 8; i++) writeBit((x >>> (8 - i - 1) & 1) == 1);
+        for (int i = 0; i < 8; i++) writeBit(((x >>> (8 - i - 1)) & 1) == 1);
     }
 
     /**

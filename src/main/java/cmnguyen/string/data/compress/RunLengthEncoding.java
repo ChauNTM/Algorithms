@@ -6,23 +6,23 @@ public class RunLengthEncoding {
     private static int MAX_COUNT = 255;
 
     public static void compress(BinaryIn in, BinaryOut out) {
-        boolean pre = false;
+        boolean old = false;
         char count = 0;
         try {
             while (!in.isEmpty()) {
                 boolean bit = in.readBoolean();
-                if (bit != pre) {
+                System.out.println("log debug=" + bit);
+                if (bit != old) {
                     out.write(count);
-                    pre = !pre;
+                    old = !old;
                     count = 0;
+                }
+                else if (count == MAX_COUNT) {
+                    out.write(count);
+                    count = 0;
+                    out.write(count);
                 }
                 count++;
-
-                if (count == MAX_COUNT) {
-                    out.write(count);
-                    count = 0;
-                    out.write(count);
-                }
             }
         } catch (IOException ex) {
             System.out.println("Exception while compress " + ex);

@@ -3,7 +3,7 @@ package main.java.cmnguyen.string.data.compress;
 public class Main {
 
     public static void main(String[] args) {
-        testCompressPicture();
+        testHuffman();
     }
 
     private static void testGenomics() {
@@ -20,15 +20,27 @@ public class Main {
     }
 
     private static void testCompressPicture() {
-        String fileName = "src/main/resources/compressedTemp.txt";
+        String fileName = "src/main/resources/compressedTemp.bin";
         System.out.println("Compress picture file\nIn progress\n");
         BinaryIn in = new BinaryIn("src/main/resources/32x48.bin");
-        BinaryOut out = new BinaryOut(fileName);
+        BinaryOut out = new BinaryOut();
         RunLengthEncoding.compress(in, out);
         System.out.println("Done");
 
-        BinaryOut fileOutput = new BinaryOut("src/main/resources/32x48-01.bin");
-        BinaryIn compressedInput = new BinaryIn(fileName);
-        RunLengthEncoding.expand(compressedInput, fileOutput);
+//        BinaryOut fileOutput = new BinaryOut("src/main/resources/32x48-01.bin");
+//        BinaryIn compressedInput = new BinaryIn(fileName);
+//        RunLengthEncoding.expand(compressedInput, fileOutput);
+    }
+
+    private static void testHuffman() {
+        System.out.println("Compress Huffman \nIn progress\n");
+        BinaryIn in = new BinaryIn("src/main/resources/huffman.txt");
+        BinaryOut out = new BinaryOut("src/main/resources/huffman_temp.bin");
+        Huffman.compress(in, out);
+        System.out.println("Done");
+
+        BinaryOut fileOutput = new BinaryOut("src/main/resources/huffman_result.txt");
+        BinaryIn compressedInput = new BinaryIn("src/main/resources/huffman_temp.bin");
+        Huffman.expand(compressedInput, fileOutput);
     }
 }
