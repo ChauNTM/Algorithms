@@ -3,7 +3,7 @@ package main.java.cmnguyen.string.data.compress;
 public class Main {
 
     public static void main(String[] args) {
-        testHuffman();
+        testLZW();
     }
 
     private static void testGenomics() {
@@ -41,6 +41,18 @@ public class Main {
 
         BinaryOut fileOutput = new BinaryOut("src/main/resources/huffman_result.txt");
         BinaryIn compressedInput = new BinaryIn("src/main/resources/huffman_temp.bin");
+        Huffman.expand(compressedInput, fileOutput);
+    }
+
+    private static void testLZW() {
+        System.out.println("Compress LZW \nIn progress\n");
+        BinaryIn in = new BinaryIn("src/main/resources/lzw.txt");
+        BinaryOut out = new BinaryOut("src/main/resources/lzw_temp.bin");
+        Huffman.compress(in, out);
+        System.out.println("Done");
+
+        BinaryOut fileOutput = new BinaryOut("src/main/resources/lzw_result.txt");
+        BinaryIn compressedInput = new BinaryIn("src/main/resources/lzw_temp.bin");
         Huffman.expand(compressedInput, fileOutput);
     }
 }
