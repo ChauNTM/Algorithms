@@ -162,13 +162,13 @@ public class Main {
     }
 
     static private void reverseInteger() {
-//        int number = -123;
-//        System.out.println("reverse integer: " + ReverseInteger.reverse(number));
-
-        int number = 1534236469;
+        int number = -123;
         System.out.println("reverse integer: " + ReverseInteger.reverse(number));
 
-        number = -2147483412;
+        number = 1534236469;
+        System.out.println("reverse integer: " + ReverseInteger.reverse(number));
+
+        number = -2147483648;
         System.out.println("reverse integer: " + ReverseInteger.reverse(number));
     }
 

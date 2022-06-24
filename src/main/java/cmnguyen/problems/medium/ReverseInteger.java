@@ -11,20 +11,17 @@ package main.java.cmnguyen.problems.medium;
  * */
 public class ReverseInteger {
     public static int reverse(int x) {
-        if (x < 0) return - reversePositive(-x);
+        if (x < 0) return - reversePositive(x * (-1));
         else return reversePositive(x);
     }
 
     private static int reversePositive(int x) {
-        if (x < 10) return x;
-        while (x % 10 == 0) x = x/10;
-
         int result = 0;
         while (x > 0) {
-            // number is overflow
+            if (result > Integer.MAX_VALUE / 10) {
+                return 0;
+            }
             result = result * 10 + x % 10;
-//            if (result > Integer.MAX_VALUE/10) return 0;
-//            System.out.println("Result " + result);
             x = x/10;
         }
 
