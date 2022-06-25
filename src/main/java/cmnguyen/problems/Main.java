@@ -1,6 +1,7 @@
 package main.java.cmnguyen.problems;
 
 import main.java.cmnguyen.problems.easy.*;
+import main.java.cmnguyen.problems.hard.CourseScheduleV3;
 import main.java.cmnguyen.problems.medium.*;
 import main.java.cmnguyen.problems.structure.ListNode;
 import main.java.cmnguyen.problems.structure.TreeNode;
@@ -12,7 +13,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        reverseInteger();
+        containsMostWater();
     }
 
     private static void testPalindromeNumber() {
@@ -170,6 +171,23 @@ public class Main {
 
         number = -2147483648;
         System.out.println("reverse integer: " + ReverseInteger.reverse(number));
+    }
+
+    static private void courseScheduleV3() {
+//        int[][] courses = new int[][]{{100,200},{200,1300},{1000,1250},{2000,3200}};
+        int[][] courses = new int[][]{{1,2}};
+        System.out.println("maximum number of courses " + CourseScheduleV3.scheduleCourse(courses));
+    }
+
+    static private void longestPalindromic() {
+        String s = "bacdaba";
+        System.out.println("longest palindromic of " + s + " is " + LongestPalindromic.longestPalindrome(s));
+    }
+
+    static private void containsMostWater() {
+        int[] height = {2,3,4,5,18,17,6};
+//        int[] height = {1, 2, 4, 3};
+        System.out.println("most area: " + ContainerMostWater.maxArea(height));
     }
 
 }
