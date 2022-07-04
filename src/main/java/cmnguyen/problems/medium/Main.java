@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        mergeIntervals();
+        countUnreachablePairs();
     }
 
     static private void longestPalindromic() {
@@ -119,5 +119,57 @@ public class Main {
         for (int i=0; i<result.length; i++) {
             System.out.println("Merged arrays: " + Arrays.toString(result[i]));
         }
+    }
+
+    private static void permutations() {
+        int[] nums = new int[] {1, 2, 1, 1};
+        List<List<Integer>> result = Permutations.permute(nums);
+        for (int i=0; i<result.size(); i++) {
+            System.out.println(result.get(i));
+        }
+    }
+
+    private static void maxSubArray() {
+        int[] nums = new int[] {5,4,-1,7,8};
+        System.out.println("maxSubArray: " + MaximumSubArray.maxSubArray(nums));
+    }
+
+    private static void subsets() {
+        int[] nums = new int[] {1, 2, 3, 4};
+        List<List<Integer>> result = Subsets.subsets(nums);
+        for (int i=0; i<result.size(); i++) {
+            System.out.println(result.get(i));
+        }
+    }
+
+    private static void numberOfIsland() {
+        char[][] grid = new char[][] {{'1','1','0','0','0'},
+                {'1','1','0','0','0'}, {'0','0','1','0','0'}, {'0','0','0','1','1'}};
+//        char[][] grid = new char[][]
+//                {{'1','1','1'},{'0','1','0'},{'1','1','1'}};
+        System.out.println("Number of Islands " + NumberOfIslands.numIslands(grid));
+    }
+
+    private static void maxAreaOfIsland() {
+        int[][] grid = new int[][] {
+                {0,0,1,0,0,0,0,1,0,0,0,0,0},
+                {0,0,0,0,0,0,0,1,1,1,0,0,0},
+                {0,1,1,0,1,0,0,0,0,0,0,0,0},
+                {0,1,0,0,1,1,0,0,1,0,1,0,0},
+                {0,1,0,0,1,1,0,0,1,1,1,0,0},
+                {0,0,0,0,0,0,0,0,0,0,1,0,0},
+                {0,0,0,0,0,0,0,1,1,1,0,0,0},
+                {0,0,0,0,0,0,0,1,1,0,0,0,0}
+        };
+//        int[][] grid = new int[][]{{1,1,0,0,0},{1,1,0,0,0},{0,0,0,1,1},{0,0,0,1,1}};
+        System.out.println("Number of Islands " + MaxAreaOfIsland.maxAreaOfIsland(grid));
+    }
+
+    private static void countUnreachablePairs() {
+        int n = 11;
+        int[][] edges = new int[][]
+        {{5,0},{1,0},{10,7},{9,8},{7,2},{1,3},{0,2},{8,5},{4,6},{4,2}};
+//        int[][] edges = new int[][]{{0,2},{0,5},{2,4},{1,6},{5,4}};
+        System.out.println("Number of pairs of different nodes that are unreachable from each other: " + CountUnreachablePairs.countPairs(n, edges));
     }
 }
