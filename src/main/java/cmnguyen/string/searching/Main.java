@@ -3,7 +3,7 @@ package main.java.cmnguyen.string.searching;
 public class Main {
 
     public static void main(String[] args) {
-        testTST();
+        testTriesST();
     }
 
     private static void testTriesST() {

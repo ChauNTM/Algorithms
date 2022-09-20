@@ -1,4 +1,4 @@
-package main.java.cmnguyen.problems.medium;
+package main.java.cmnguyen.problems.medium.two_pointers;
 
 import main.java.cmnguyen.problems.structure.ListNode;
 

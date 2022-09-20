@@ -1,4 +1,4 @@
-package main.java.cmnguyen.problems.medium;
+package main.java.cmnguyen.problems.medium.jumpgame;
 /**
  * Given an array of non-negative integers nums, you are initially positioned at the first index of the array.
  * Each element in the array represents your maximum jump length at that position.
@@ -17,10 +17,7 @@ public class JumpGameII {
         int maxJump = 0;
 
         for (int i = 0; i < nums.length - 1; i++) {
-            int steps = i + nums[i];
-            if (steps > maxJump) {
-                maxJump = steps;
-            }
+            maxJump = Math.max(maxJump, i + nums[i]);
             if (i == currentJump) {
                 minStep++;
                 currentJump = maxJump;

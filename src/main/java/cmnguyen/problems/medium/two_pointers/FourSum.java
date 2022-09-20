@@ -1,4 +1,4 @@
-package main.java.cmnguyen.problems.medium;
+package main.java.cmnguyen.problems.medium.two_pointers;
 
 import java.util.ArrayList;
 import java.util.Arrays;

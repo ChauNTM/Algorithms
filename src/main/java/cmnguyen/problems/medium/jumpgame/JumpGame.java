@@ -1,4 +1,4 @@
-package main.java.cmnguyen.problems.medium;
+package main.java.cmnguyen.problems.medium.jumpgame;
 
 /**
  * You are given an integer array nums. You are initially positioned at the array's first index,

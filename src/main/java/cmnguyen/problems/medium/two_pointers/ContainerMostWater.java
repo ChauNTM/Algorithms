@@ -1,4 +1,4 @@
-package main.java.cmnguyen.problems.medium;
+package main.java.cmnguyen.problems.medium.two_pointers;
 
 /**
  * You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints

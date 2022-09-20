@@ -1,5 +1,6 @@
 package main.java.cmnguyen.problems.easy;
 
+import main.java.cmnguyen.problems.structure.ListNode;
 import main.java.cmnguyen.problems.structure.TreeNode;
 
 import java.util.Arrays;
@@ -8,7 +9,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        testPalindromeNumber();
+        majorityElement();
     }
 
     private static void testPalindromeNumber() {
@@ -20,7 +21,7 @@ public class Main {
     }
 
     private static void twoSum() {
-        int[] a = new int[]{3, 3};
+        int[] a = new int[]{3, 2, 4};
         int target = 6;
         TwoSum algo = new TwoSum();
         int[] result = algo.twoSum(a, target);
@@ -87,6 +88,68 @@ public class Main {
         arrays = Arrays.asList(1,2,null,3,null,4,null,5);
         p = TreeNode.initBinaryTree(arrays);
         System.out.println("Tree has path sum: " + PathSum.hasPathSum(p, 6));
+    }
+
+    private static void reverseLinkedList() {
+        int[] arr = {1,2,3,4,5};
+        ListNode head = fromArray(arr);
+        System.out.println(ReverseLinkedList.reverseList(head));
+    }
+
+    static private ListNode fromArray(int[] arr) {
+        ListNode head = null;
+        ListNode tail = null;
+        for (int j : arr) {
+            if (head == null) {
+                head = new ListNode(j);
+                tail = head;
+            } else {
+                tail.next = new ListNode(j);
+                tail = tail.next;
+            }
+        }
+        return head;
+    }
+
+    private static void climbingStair() {
+        int n = 6;
+        System.out.println("There are " + ClimbingStairs.climbStairs(n) + " ways to climb to the top");
+    }
+
+    private static void maxProfit() {
+        int[] prices = new int[] {7,1,5,3,6,4,7};
+        System.out.println("max profit: " + MaxProfit.maxProfit(prices));
+    }
+
+    private static void balancedBinaryTree() {
+        List<Integer> arrays = Arrays.asList(1,null,2,null,3);
+        TreeNode p = TreeNode.initBinaryTree(arrays);
+        System.out.println("Tree is balanced " + BalancedBinaryTree.isBalanced(p));
+    }
+
+    private static void maxDepth() {
+        List<Integer> arrays = Arrays.asList(1,null,2,null,3);
+        TreeNode p = TreeNode.initBinaryTree(arrays);
+        System.out.println("Tree is balanced " + MaximumDepth.maxDepth(p));
+    }
+
+    private static void twoSumIV() {
+        List<Integer> arrays = Arrays.asList(5,3,6,2,4,null,7);
+        TreeNode p = TreeNode.initBinaryTree(arrays);
+        int target = 28;
+        System.out.println("Exist two elements in the BST such that their sum is equal to the given target "
+                + TwoSumIV.findTarget(p, target));
+    }
+
+    private static void validAnagram() {
+        String s = "anagram";
+        String t = "nagaram";
+        System.out.println(t + " is " + (!ValidAnagram.isAnagram(s, t) ? "not " : "") + "a valid anagram of " + t);
+    }
+
+    private static void majorityElement() {
+        int[] nums = new int[]{2, 3, 3, 5, 3, 3, 4, 2};
+        System.out.println("Majority element: " + MajorityElement.majorityElement(nums));
     }
 
 }

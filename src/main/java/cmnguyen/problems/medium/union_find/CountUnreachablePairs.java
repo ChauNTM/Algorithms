@@ -1,4 +1,4 @@
-package main.java.cmnguyen.problems.medium;
+package main.java.cmnguyen.problems.medium.union_find;
 
 public class CountUnreachablePairs {
 

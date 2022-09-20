@@ -1,4 +1,4 @@
-package main.java.cmnguyen.problems.medium;
+package main.java.cmnguyen.problems.medium.jumpgame;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
