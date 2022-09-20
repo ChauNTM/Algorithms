@@ -9,7 +9,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        majorityElement();
+        twoSumIV();
     }
 
     private static void testPalindromeNumber() {
@@ -134,9 +134,9 @@ public class Main {
     }
 
     private static void twoSumIV() {
-        List<Integer> arrays = Arrays.asList(5,3,6,2,4,null,7);
+        List<Integer> arrays = Arrays.asList(2,1,3);
         TreeNode p = TreeNode.initBinaryTree(arrays);
-        int target = 28;
+        int target = 4;
         System.out.println("Exist two elements in the BST such that their sum is equal to the given target "
                 + TwoSumIV.findTarget(p, target));
     }
