@@ -46,4 +46,13 @@ public class TreeNode {
         }
         return nodes[1];
     }
+
+    static private String print(TreeNode node) {
+        if (node == null) return "";
+        return node.val + " " + print(node.left) + " " + print(node.right);
+    }
+
+    static public String println(TreeNode root) {
+        return print(root);
+    }
 }

@@ -1,5 +1,6 @@
 package main.java.cmnguyen.problems.easy;
 
+import com.sun.source.tree.Tree;
 import main.java.cmnguyen.problems.structure.ListNode;
 import main.java.cmnguyen.problems.structure.TreeNode;
 
@@ -9,7 +10,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        twoSumIV();
+        middleOfLinkedList();
     }
 
     private static void testPalindromeNumber() {
@@ -150,6 +151,30 @@ public class Main {
     private static void majorityElement() {
         int[] nums = new int[]{2, 3, 3, 5, 3, 3, 4, 2};
         System.out.println("Majority element: " + MajorityElement.majorityElement(nums));
+    }
+
+    private static void floodFill() {
+//        int[][] image = new int[][]{{1,1,1},{1,1,0},{1,0,1}};
+        int[][] image = new int[][]{{0,0,0},{0,0,0}};
+        System.out.println("Flood fill " + Arrays.deepToString(FloodFill.floodFill(image, 0, 0, 0)));
+    }
+
+    private static void islandPerimeter() {
+        int[][] grid = new int[][]{{0,1,0,0},{1,1,1,0},{0,1,0,0},{1,1,0,0}};
+//        int[][] grid = new int[][]{{0,1}};
+        System.out.println("Island perimeter " + IslandPerimeter.islandPerimeter(grid));
+    }
+
+    private static void invertBinaryTree() {
+        List<Integer> arrays = Arrays.asList(4,2,7,1,3,6,9);
+        TreeNode p = TreeNode.initBinaryTree(arrays);
+        System.out.println("Invert binary tree " + TreeNode.println(InvertBinaryTree.invertTree(p)));
+    }
+
+    private static void middleOfLinkedList() {
+        int[] arr = {1,2,3,4,5};
+        ListNode head = fromArray(arr);
+        System.out.println("Middle of linked list " + MiddleOfLinkedList.middleNode(head));
     }
 
 }

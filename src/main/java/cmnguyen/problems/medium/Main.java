@@ -4,17 +4,18 @@ import main.java.cmnguyen.problems.hard.SlidingWindowMaximum;
 import main.java.cmnguyen.problems.medium.backtrack.Permutations;
 import main.java.cmnguyen.problems.medium.backtrack.Subsets;
 import main.java.cmnguyen.problems.medium.backtrack.SubsetsII;
+import main.java.cmnguyen.problems.medium.bfs.ColoringBorder;
 import main.java.cmnguyen.problems.medium.dfs.MaxAreaOfIsland;
 import main.java.cmnguyen.problems.medium.dfs.NumberOfIslands;
 import main.java.cmnguyen.problems.medium.heap.TopKFrequentWords;
 import main.java.cmnguyen.problems.medium.jumpgame.JumpGameII;
 import main.java.cmnguyen.problems.medium.k_select.KCloset;
+import main.java.cmnguyen.problems.medium.kadane.MaximumSubArray;
 import main.java.cmnguyen.problems.medium.stack.EvaluateRPN;
 import main.java.cmnguyen.problems.medium.stack.RemoveAdjacentDuplicate;
 import main.java.cmnguyen.problems.medium.tries.MapSum;
 import main.java.cmnguyen.problems.medium.tries.ReplaceWords;
 import main.java.cmnguyen.problems.medium.two_pointers.*;
-import main.java.cmnguyen.problems.medium.kadane.MaximumSubArray;
 import main.java.cmnguyen.problems.medium.union_find.CountUnreachablePairs;
 import main.java.cmnguyen.problems.structure.ListNode;
 import main.java.cmnguyen.problems.structure.TreeNode;
@@ -25,6 +26,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        coloringBorder();
     }
 
     static private void longestPalindromic() {
@@ -295,11 +297,6 @@ public class Main {
         System.out.println("Odd even linkedlist" + OddEvenLinkedList.oddEvenList(head));
     }
 
-    private static void zigzagConversion() {
-        String str = "PAYPALISHIRING";
-        System.out.println(ZigzagConversion.convert(str, 3));
-    }
-
     private static void maxProfitII() {
         int[] prices = new int[]{7,1,5,3,6,4};
         System.out.println("max profit: " + MaxProfitII.maxProfit(prices));
@@ -320,5 +317,17 @@ public class Main {
         int[] arr = new int[]{3,1,8,4,9,7,12,0,0,12,6,12,6,19,24,90,87,54,92};
 //        int[] arr = new int[]{24,11,49,80,63,8,61,22,73,85};
         System.out.println("Left size " + PartitionDisjoint.partitionDisjoint(arr));
+    }
+
+    private static void deleteMiddleOfLinkedList() {
+        int[] arr = {1,3,4,7,1,2,6};
+        ListNode head = fromArray(arr);
+        System.out.println("Delete middle of linked list " + DeleteMiddle.deleteMiddle(head));
+    }
+
+    private static void coloringBorder() {
+        int[][] grid = new int[][]{{1,1,1},{1,1,1},{1,1,1}};
+        int row = 1, col = 1, color = 2;
+        System.out.println("Coloring border output: " + Arrays.deepToString(ColoringBorder.colorBorder(grid, row, col, color)));
     }
 }
