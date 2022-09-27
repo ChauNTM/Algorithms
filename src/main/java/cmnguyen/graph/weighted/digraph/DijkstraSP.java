@@ -1,6 +1,9 @@
 package main.java.cmnguyen.graph.weighted.digraph;
 
+import main.java.cmnguyen.graph.weighted.graph.EdgeWeightedGraph;
 import main.java.cmnguyen.sorting.heapsort.IndexMinPQ;
+
+import java.util.Arrays;
 
 /**
  * Using Dijkstra for finding shorted path in edge-weighted digraph with nonnegative weights.
@@ -14,7 +17,7 @@ public class DijkstraSP extends AbstractSP {
 
         edgeTo = new DirectedWeighedEdge[g.V()];
         distTo = new double[g.V()];
-        for (int i=0; i < g.V(); i++) distTo[i] = Double.MAX_VALUE;
+        Arrays.fill(distTo, Double.MAX_VALUE);
 
         pq = new IndexMinPQ<>(g.V());
         pq.insert(s, 0.0);
@@ -25,10 +28,11 @@ public class DijkstraSP extends AbstractSP {
 
     @Override
     protected void relax(WeightedDigraph g, int v) {
-        for (DirectedWeighedEdge e: g.adj(v)) {
+        for(DirectedWeighedEdge e : g.adj(v)) {
             int w = e.to();
-            if (distTo[w] > distTo[v] + e.weighted()) {
-                distTo[w] = distTo[v] + e.weighted();
+            double dist = distTo[v] + e.weighted();
+            if (distTo[w] >= dist) {
+                distTo[w] = dist;
                 edgeTo[w] = e;
                 if (pq.contains(w)) pq.change(w, e.weighted());
                 else pq.insert(w, e.weighted());

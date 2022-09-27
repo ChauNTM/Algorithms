@@ -7,10 +7,14 @@ import main.java.cmnguyen.problems.medium.backtrack.SubsetsII;
 import main.java.cmnguyen.problems.medium.bfs.ColoringBorder;
 import main.java.cmnguyen.problems.medium.dfs.MaxAreaOfIsland;
 import main.java.cmnguyen.problems.medium.dfs.NumberOfIslands;
+import main.java.cmnguyen.problems.medium.dfs.ZeroOneMatrix;
+import main.java.cmnguyen.problems.medium.graph.CourseSchedule;
+import main.java.cmnguyen.problems.medium.graph.CourseScheduleII;
 import main.java.cmnguyen.problems.medium.heap.TopKFrequentWords;
 import main.java.cmnguyen.problems.medium.jumpgame.JumpGameII;
 import main.java.cmnguyen.problems.medium.k_select.KCloset;
 import main.java.cmnguyen.problems.medium.kadane.MaximumSubArray;
+import main.java.cmnguyen.problems.medium.merge_intervals.InsertInterval;
 import main.java.cmnguyen.problems.medium.stack.EvaluateRPN;
 import main.java.cmnguyen.problems.medium.stack.RemoveAdjacentDuplicate;
 import main.java.cmnguyen.problems.medium.tries.MapSum;
@@ -26,7 +30,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        coloringBorder();
+        courseSchedule();
     }
 
     static private void longestPalindromic() {
@@ -329,5 +333,32 @@ public class Main {
         int[][] grid = new int[][]{{1,1,1},{1,1,1},{1,1,1}};
         int row = 1, col = 1, color = 2;
         System.out.println("Coloring border output: " + Arrays.deepToString(ColoringBorder.colorBorder(grid, row, col, color)));
+    }
+
+    private static void zeroOneMatrix() {
+        int[][] matrix = new int[][]{
+                {1,0,1,1,0,0,1,0,0,1},
+                {1,0,1,0,1,1,1,1,1,1},
+                {1,0,0,0,1,1,1,1,0,1},
+                {1,1,1,1,1,1,1,0,1,0},
+                {1,1,1,1,0,1,0,0,1,1}};
+//        int[][] matrix = new int[][]{{0,0,0},{1,1,1},{1,1,1}};
+        System.out.println("Coloring border output: " + Arrays.deepToString(ZeroOneMatrix.updateMatrix(matrix)));
+
+    }
+
+    private static void insertInterval() {
+//        int[][] intervals = new int[][]{{1,2},{3,5},{6,7},{8,10},{12,16}};
+        int[][] intervals = new int[][]{{1,5}};
+        int[] newInterval = new int[]{2,3};
+
+        System.out.println("Merge interval: " + Arrays.deepToString(InsertInterval.insert(intervals, newInterval)));
+    }
+
+    private static void courseSchedule() {
+        int numCourses = 4;
+        int[][] prerequisites = new int[][]{{1,0},{2,0},{3,1},{3,2}};
+//        int[][] prerequisites = new int[][]{};
+        System.out.println("Course schedule: " + Arrays.toString(CourseScheduleII.findOrder(numCourses, prerequisites)));
     }
 }
