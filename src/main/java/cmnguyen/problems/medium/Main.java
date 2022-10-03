@@ -1,5 +1,6 @@
 package main.java.cmnguyen.problems.medium;
 
+import main.java.cmnguyen.problems.hard.ShortestSubArray;
 import main.java.cmnguyen.problems.hard.SlidingWindowMaximum;
 import main.java.cmnguyen.problems.medium.backtrack.Permutations;
 import main.java.cmnguyen.problems.medium.backtrack.Subsets;
@@ -8,13 +9,15 @@ import main.java.cmnguyen.problems.medium.bfs.ColoringBorder;
 import main.java.cmnguyen.problems.medium.dfs.MaxAreaOfIsland;
 import main.java.cmnguyen.problems.medium.dfs.NumberOfIslands;
 import main.java.cmnguyen.problems.medium.dfs.ZeroOneMatrix;
-import main.java.cmnguyen.problems.medium.graph.CourseSchedule;
 import main.java.cmnguyen.problems.medium.graph.CourseScheduleII;
 import main.java.cmnguyen.problems.medium.heap.TopKFrequentWords;
 import main.java.cmnguyen.problems.medium.jumpgame.JumpGameII;
-import main.java.cmnguyen.problems.medium.k_select.KCloset;
+import main.java.cmnguyen.problems.medium.sort.k_select.KCloset;
 import main.java.cmnguyen.problems.medium.kadane.MaximumSubArray;
 import main.java.cmnguyen.problems.medium.merge_intervals.InsertInterval;
+import main.java.cmnguyen.problems.medium.merge_intervals.IntervalIntersection;
+import main.java.cmnguyen.problems.medium.merge_intervals.MergeIntervals;
+import main.java.cmnguyen.problems.medium.sliding_window.*;
 import main.java.cmnguyen.problems.medium.stack.EvaluateRPN;
 import main.java.cmnguyen.problems.medium.stack.RemoveAdjacentDuplicate;
 import main.java.cmnguyen.problems.medium.tries.MapSum;
@@ -30,7 +33,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        courseSchedule();
+        findAnagrams();
     }
 
     static private void longestPalindromic() {
@@ -361,4 +364,71 @@ public class Main {
 //        int[][] prerequisites = new int[][]{};
         System.out.println("Course schedule: " + Arrays.toString(CourseScheduleII.findOrder(numCourses, prerequisites)));
     }
+
+    private static void maxConsecutiveOnesIII() {
+        int[] nums = new int[]{1,1,1,0,0,0,1,1,1,1,0};
+        int k = 2;
+        System.out.println("Max consecutive ones: " + MaxConsecutiveOnesIII.longestOnes(nums, k));
+    }
+
+    private static void numSubarraysWithSum() {
+//        int[] nums = new int[]{0,0,0,0,0};
+        int[] nums = new int[]{1,0,1,0,1};
+        int k = 2;
+        System.out.println("Max consecutive ones: " + NumSubArraysWithSum.numSubarraysWithSum(nums, k));
+    }
+
+    private static void minSubArrayLen() {
+//        int[] nums = new int[]{1,1,1,1,1,1,1,1};
+        int[] nums = new int[]{2,3,1,2,4,3};
+        int target = 7;
+        System.out.println("Minimum sub array Length: " + MinSubArrayLen.minSubArrayLen(target, nums));
+    }
+
+    private static void fruitIntoBaskets() {
+        int[] fruits = new int[]{2,0,0,2,1,3};
+        System.out.println("Fruit into baskets: " + FruitIntoBaskets.totalFruit(fruits));
+    }
+
+    private static void balancedString() {
+        String s = "WWEQERQWQWWRWWERQWEQ";
+//        String s = "WERQ";
+        System.out.println("Minimum length of the substring that can be replaced: " + BalancedString.balancedString(s));
+    }
+
+    private static void numberOfSubstrings() {
+        String s = "abcabc";
+//        String s = "WERQ";
+        System.out.println("Number of substrings containing at least one occurrence of all these characters a, b and c: "
+                + NumberOfSubstrings.numberOfSubstrings(s));
+    }
+
+    private static void numberOfSubarrays() {
+        int[] nums = new int[]{1,1,2,1,1};
+        int k = 3;
+        System.out.println("Number of nice sub-arrays: " + NumberOfSubArrays.numberOfSubarrays(nums, k));
+    }
+
+    private static void shortestSubArray() {
+        int[] nums = new int[]{84,-37,32,40,95};
+        int k = 167;
+        System.out.println("Shortest sub array: " + ShortestSubArray.shortestSubarray(nums, k));
+    }
+
+    private static void intervalIntersection() {
+//        int[][] firstList = new int[][]{{0,2},{5,10},{13,23},{24,25}};
+        int[][] firstList = new int[][]{{14,16}};
+//        int[][] firstList = new int[][]{{1,3},{5,9}};
+        int[][] secondList = new int[][]{{7,13},{16,16}};
+//        int[][] secondList = new int[][]{};
+        System.out.println("Shortest sub array: " +
+                Arrays.deepToString(IntervalIntersection.intervalIntersection(firstList, secondList)));
+    }
+
+    private static void findAnagrams() {
+        String s = "abacbabc";
+        String p = "abc";
+        System.out.println("Find All Anagrams in a String: " + FindAnagrams.findAnagrams(s, p));
+    }
+
 }

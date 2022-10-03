@@ -1,4 +1,4 @@
-package main.java.cmnguyen.problems.medium.k_select;
+package main.java.cmnguyen.problems.medium.sort.k_select;
 
 import java.util.Arrays;
 

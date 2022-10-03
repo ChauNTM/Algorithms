@@ -10,7 +10,7 @@ import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
-        maxProfitIII();
+        subArraysWithKDistinct();
     }
 
     static private void courseScheduleV3() {
@@ -59,5 +59,11 @@ public class Main {
     private static void maxProfitIII() {
         int[] prices = new int[]{1,2,4,2,5,7,2,4,9,0};
         System.out.println("max profit: " + MaxProfitIII.maxProfit(prices));
+    }
+
+    private static void subArraysWithKDistinct() {
+        int[] nums = new int[]{1,2,1,2,3};
+        int k = 2;
+        System.out.println("Sub arrays with k distinct number: " + SubArraysWithKDistinct.subarraysWithKDistinct(nums, k));
     }
 }
