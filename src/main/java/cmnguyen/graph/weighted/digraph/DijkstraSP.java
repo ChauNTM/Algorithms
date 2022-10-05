@@ -1,6 +1,5 @@
 package main.java.cmnguyen.graph.weighted.digraph;
 
-import main.java.cmnguyen.graph.weighted.graph.EdgeWeightedGraph;
 import main.java.cmnguyen.sorting.heapsort.IndexMinPQ;
 
 import java.util.Arrays;

@@ -3,22 +3,20 @@ package main.java.cmnguyen.problems.medium;
 public class LongestSubstring {
 
     public static int lengthOfLongestSubstring(String s) {
-        if (s.isEmpty() || s.length() == 1) return s.length();
-        int[] characters = new int[256];
-        for (int i = 0; i < 256; i++) characters[i] = -1;
-        int startIndex = 0;
-        int maxLength = 0;
+        int[] ids = new int[256];
+        int res = 0;
+        for (int k =0; k < 256; k++) ids[k] = -1;
+        int i = 0;
 
-        for (int i = 0; i < s.length(); i++) {
-            int curPos = characters[s.charAt(i)];
-            if (curPos != -1 && curPos >= startIndex) {
-                maxLength = Math.max(maxLength, i - startIndex);
-                startIndex = curPos + 1;
+        for (int j = 0; j < s.length(); j++) {
+            if (ids[s.charAt(j)] > -1 && ids[s.charAt(j)] >= i) {
+                res = Math.max(res, j - i);
+                i = ids[s.charAt(j)] + 1;
             }
-            characters[s.charAt(i)] = i;
+            ids[s.charAt(j)] = j;
         }
-        maxLength = Math.max(maxLength, s.length() - startIndex);
+        res = Math.max(res, s.length() - i);
 
-        return maxLength;
+        return res;
     }
 }

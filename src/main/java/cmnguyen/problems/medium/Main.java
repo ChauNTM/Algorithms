@@ -6,6 +6,7 @@ import main.java.cmnguyen.problems.medium.backtrack.Permutations;
 import main.java.cmnguyen.problems.medium.backtrack.Subsets;
 import main.java.cmnguyen.problems.medium.backtrack.SubsetsII;
 import main.java.cmnguyen.problems.medium.bfs.ColoringBorder;
+import main.java.cmnguyen.problems.medium.bfs.WordSearch;
 import main.java.cmnguyen.problems.medium.dfs.MaxAreaOfIsland;
 import main.java.cmnguyen.problems.medium.dfs.NumberOfIslands;
 import main.java.cmnguyen.problems.medium.dfs.ZeroOneMatrix;
@@ -20,6 +21,7 @@ import main.java.cmnguyen.problems.medium.merge_intervals.MergeIntervals;
 import main.java.cmnguyen.problems.medium.sliding_window.*;
 import main.java.cmnguyen.problems.medium.stack.EvaluateRPN;
 import main.java.cmnguyen.problems.medium.stack.RemoveAdjacentDuplicate;
+import main.java.cmnguyen.problems.medium.tries.LongestWordInDictionary;
 import main.java.cmnguyen.problems.medium.tries.MapSum;
 import main.java.cmnguyen.problems.medium.tries.ReplaceWords;
 import main.java.cmnguyen.problems.medium.two_pointers.*;
@@ -33,7 +35,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        findAnagrams();
+        lengthOfLongestSubstring();
     }
 
     static private void longestPalindromic() {
@@ -429,6 +431,29 @@ public class Main {
         String s = "abacbabc";
         String p = "abc";
         System.out.println("Find All Anagrams in a String: " + FindAnagrams.findAnagrams(s, p));
+    }
+
+    private static void longestWord() {
+        String[] words = new String[]{"a","banana","app","appl","ap","apply","apple"};
+        System.out.println("Longest word in dictionary is: " + LongestWordInDictionary.longestWord(words));
+    }
+
+    private static void lengthOfLongestSubstring() {
+        String word = "abcabcbb";
+        System.out.println("Longest substring without repeating characters is: " + LongestSubstring.lengthOfLongestSubstring(word));
+    }
+
+    private static void wordSearch() {
+        char[][] board = new char[][]{{'A','B','C','E'},{'S','F','E','S'},{'A','D','E','E'}};
+//        char[][] board = new char[][]{{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
+//        char[][] board = new char[][]{{'C','A','A'},{'A','A','A'},{'B','C','D'}};
+        String word = "ABCESEEEFS";
+        System.out.println("Is the word " + word + " exist in dictionary: " + WordSearch.exist(board, word));
+    }
+
+    private static void countCharacters() {
+        String word = "amlsbczamtb";
+        System.out.println("maximum characters: " + CountDifferCharacters.countCharacters(word));
     }
 
 }
