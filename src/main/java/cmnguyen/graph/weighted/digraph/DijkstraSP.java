@@ -33,8 +33,8 @@ public class DijkstraSP extends AbstractSP {
             if (distTo[w] >= dist) {
                 distTo[w] = dist;
                 edgeTo[w] = e;
-                if (pq.contains(w)) pq.change(w, e.weighted());
-                else pq.insert(w, e.weighted());
+                if (pq.contains(w)) pq.change(w, distTo[w]);
+                else pq.insert(w, distTo[w]);
             }
         }
     }

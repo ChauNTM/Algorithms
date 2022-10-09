@@ -10,15 +10,18 @@ import main.java.cmnguyen.problems.medium.bfs.WordSearch;
 import main.java.cmnguyen.problems.medium.dfs.MaxAreaOfIsland;
 import main.java.cmnguyen.problems.medium.dfs.NumberOfIslands;
 import main.java.cmnguyen.problems.medium.dfs.ZeroOneMatrix;
+import main.java.cmnguyen.problems.medium.dijkstra.MinimumCost;
+import main.java.cmnguyen.problems.medium.dijkstra.PathWithMinimumEffort;
+import main.java.cmnguyen.problems.medium.dijkstra.ShortestPathWithObstacleElimination;
 import main.java.cmnguyen.problems.medium.graph.CourseScheduleII;
 import main.java.cmnguyen.problems.medium.heap.TopKFrequentWords;
 import main.java.cmnguyen.problems.medium.jumpgame.JumpGameII;
-import main.java.cmnguyen.problems.medium.sort.k_select.KCloset;
 import main.java.cmnguyen.problems.medium.kadane.MaximumSubArray;
 import main.java.cmnguyen.problems.medium.merge_intervals.InsertInterval;
 import main.java.cmnguyen.problems.medium.merge_intervals.IntervalIntersection;
 import main.java.cmnguyen.problems.medium.merge_intervals.MergeIntervals;
 import main.java.cmnguyen.problems.medium.sliding_window.*;
+import main.java.cmnguyen.problems.medium.sort.k_select.KCloset;
 import main.java.cmnguyen.problems.medium.stack.EvaluateRPN;
 import main.java.cmnguyen.problems.medium.stack.RemoveAdjacentDuplicate;
 import main.java.cmnguyen.problems.medium.tries.LongestWordInDictionary;
@@ -35,7 +38,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        lengthOfLongestSubstring();
+        minPathSum();
     }
 
     static private void longestPalindromic() {
@@ -451,9 +454,47 @@ public class Main {
         System.out.println("Is the word " + word + " exist in dictionary: " + WordSearch.exist(board, word));
     }
 
-    private static void countCharacters() {
-        String word = "amlsbczamtb";
-        System.out.println("maximum characters: " + CountDifferCharacters.countCharacters(word));
+    private static void minimumCardPickup() {
+        int[] cards = new int[]{1,0,5,3};
+        System.out.println("minimum card pickup " + MinimumConsecutiveCards.minimumCardPickup(cards));
+    }
+
+    private static void maximumUniqueSubarray() {
+        int[] nums = new int[]{4,2,4,5,6};
+        System.out.println("maximum score " + MaximumErasureValue.maximumUniqueSubarray(nums));
+    }
+
+    private static void minimumEffortPath() {
+        int[][] heights = new int[][]{{1,2,2},{3,8,2},{5,3,5}};
+        System.out.println("maximum score " + PathWithMinimumEffort.minimumEffortPath(heights));
+    }
+
+    private static void shortestPathWithObstaclesElimination() {
+//        int[][] grid = new int[][]{{0,0,0,0,0,0,0,0,0,0}, {0,1,1,1,1,1,1,1,1,0},
+//                {0,1,0,0,0,0,0,0,0,0},{0,1,0,1,1,1,1,1,1,1}, {0,1,0,0,0,0,0,0,0,0},
+//                {0,1,1,1,1,1,1,1,1,0},{0,1,0,0,0,0,0,0,0,0}, {0,1,0,1,1,1,1,1,1,1},
+//                {0,1,0,1,1,1,1,0,0,0},{0,1,0,0,0,0,0,0,1,0}, {0,1,1,1,1,1,1,0,1,0},
+//                {0,0,0,0,0,0,0,0,1,0}};
+//        int[][] grid = new int[][]{{0,0,0},{1,1,0},{0,0,0},{0,1,1},{0,0,0}};
+        int[][] grid = new int[][]{{0,1},{1,1},{0,0}};
+        int k = 2;
+        System.out.println("shortest path " + ShortestPathWithObstacleElimination.shortestPath(grid, k));
+    }
+
+    private static void minCost() {
+//        int[][] grid = new int[][]{{2,2,2},{2,2,2}};
+        int[][] grid = new int[][]{{1,2},{4,3}};
+//        int[][] grid = new int[][]{{1,1,3},{3,2,2},{1,1,4}};
+//        int[][] grid = new int[][]{{1,1,1,1},{2,2,2,2},{1,1,1,1},{2,2,2,2}};
+        System.out.println("Minimum cost " + MinimumCost.minCost(grid));
+    }
+
+    private static void minPathSum() {
+//        int[][] grid = new int[][]{{2,2,2},{2,2,2}};
+        int[][] grid = new int[][]{{1,3,1},{1,5,1},{4,2,1}};
+//        int[][] grid = new int[][]{{1,1,3},{3,2,2},{1,1,4}};
+//        int[][] grid = new int[][]{{1,1,1,1},{2,2,2,2},{1,1,1,1},{2,2,2,2}};
+        System.out.println("Minimum path sum " + MinimumPathSum.minPathSum(grid));
     }
 
 }
