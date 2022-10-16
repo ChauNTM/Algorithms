@@ -1,4 +1,4 @@
-package main.java.cmnguyen.problems.easy;
+package main.java.cmnguyen.problems.easy.b_tree;
 
 import main.java.cmnguyen.problems.structure.TreeNode;
 

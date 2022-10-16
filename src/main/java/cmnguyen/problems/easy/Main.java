@@ -1,6 +1,9 @@
 package main.java.cmnguyen.problems.easy;
 
-import com.sun.source.tree.Tree;
+import main.java.cmnguyen.problems.easy.b_tree.BalancedBinaryTree;
+import main.java.cmnguyen.problems.easy.b_tree.InvertBinaryTree;
+import main.java.cmnguyen.problems.easy.b_tree.MaximumDepth;
+import main.java.cmnguyen.problems.easy.b_tree.SameTree;
 import main.java.cmnguyen.problems.structure.ListNode;
 import main.java.cmnguyen.problems.structure.TreeNode;
 

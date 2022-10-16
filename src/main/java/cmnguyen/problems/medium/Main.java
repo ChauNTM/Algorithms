@@ -2,15 +2,19 @@ package main.java.cmnguyen.problems.medium;
 
 import main.java.cmnguyen.problems.hard.ShortestSubArray;
 import main.java.cmnguyen.problems.hard.SlidingWindowMaximum;
+import main.java.cmnguyen.problems.medium.b_tree.BinaryTreeZigzag;
+import main.java.cmnguyen.problems.medium.b_tree.LowestCommonAncestorBT;
+import main.java.cmnguyen.problems.medium.b_tree.StepByStepDirectionsBT;
 import main.java.cmnguyen.problems.medium.backtrack.Permutations;
 import main.java.cmnguyen.problems.medium.backtrack.Subsets;
 import main.java.cmnguyen.problems.medium.backtrack.SubsetsII;
 import main.java.cmnguyen.problems.medium.bfs.ColoringBorder;
 import main.java.cmnguyen.problems.medium.bfs.WordSearch;
+import main.java.cmnguyen.problems.medium.binary_search.FindMinInRotatedSortedArrayII;
+import main.java.cmnguyen.problems.medium.binary_search.SearchInRotatedSortedArrayII;
 import main.java.cmnguyen.problems.medium.dfs.MaxAreaOfIsland;
 import main.java.cmnguyen.problems.medium.dfs.NumberOfIslands;
 import main.java.cmnguyen.problems.medium.dfs.ZeroOneMatrix;
-import main.java.cmnguyen.problems.medium.dijkstra.MinimumCost;
 import main.java.cmnguyen.problems.medium.dijkstra.PathWithMinimumEffort;
 import main.java.cmnguyen.problems.medium.dijkstra.ShortestPathWithObstacleElimination;
 import main.java.cmnguyen.problems.medium.graph.CourseScheduleII;
@@ -20,6 +24,7 @@ import main.java.cmnguyen.problems.medium.kadane.MaximumSubArray;
 import main.java.cmnguyen.problems.medium.merge_intervals.InsertInterval;
 import main.java.cmnguyen.problems.medium.merge_intervals.IntervalIntersection;
 import main.java.cmnguyen.problems.medium.merge_intervals.MergeIntervals;
+import main.java.cmnguyen.problems.medium.robot.MinimumCostHomeComingRobot;
 import main.java.cmnguyen.problems.medium.sliding_window.*;
 import main.java.cmnguyen.problems.medium.sort.k_select.KCloset;
 import main.java.cmnguyen.problems.medium.stack.EvaluateRPN;
@@ -38,7 +43,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        minPathSum();
+        pathSumIII();
     }
 
     static private void longestPalindromic() {
@@ -476,25 +481,61 @@ public class Main {
 //                {0,1,0,1,1,1,1,0,0,0},{0,1,0,0,0,0,0,0,1,0}, {0,1,1,1,1,1,1,0,1,0},
 //                {0,0,0,0,0,0,0,0,1,0}};
 //        int[][] grid = new int[][]{{0,0,0},{1,1,0},{0,0,0},{0,1,1},{0,0,0}};
-        int[][] grid = new int[][]{{0,1},{1,1},{0,0}};
+        int[][] grid = new int[][]{{0, 1}, {1, 1}, {0, 0}};
         int k = 2;
         System.out.println("shortest path " + ShortestPathWithObstacleElimination.shortestPath(grid, k));
     }
 
-    private static void minCost() {
-//        int[][] grid = new int[][]{{2,2,2},{2,2,2}};
-        int[][] grid = new int[][]{{1,2},{4,3}};
-//        int[][] grid = new int[][]{{1,1,3},{3,2,2},{1,1,4}};
-//        int[][] grid = new int[][]{{1,1,1,1},{2,2,2,2},{1,1,1,1},{2,2,2,2}};
-        System.out.println("Minimum cost " + MinimumCost.minCost(grid));
+    private static void minPathSum() {
+        int[][] grid = new int[][]{{1,3,1},{1,5,1},{4,2,1}};
+        System.out.println("Minimum path sum " + MinimumPathSum.minPathSum(grid));
     }
 
-    private static void minPathSum() {
-//        int[][] grid = new int[][]{{2,2,2},{2,2,2}};
-        int[][] grid = new int[][]{{1,3,1},{1,5,1},{4,2,1}};
-//        int[][] grid = new int[][]{{1,1,3},{3,2,2},{1,1,4}};
-//        int[][] grid = new int[][]{{1,1,1,1},{2,2,2,2},{1,1,1,1},{2,2,2,2}};
-        System.out.println("Minimum path sum " + MinimumPathSum.minPathSum(grid));
+    private static void pathSumIII() {
+//        List<Integer> arr = Arrays.asList(5,4,8,11,null,13,4,7,2,null,null,null, null,null, null,5,1);
+//        TreeNode root = TreeNode.initBinaryTree(arr);
+//        int target = 22;
+//
+//        System.out.println("Number of path " + PathSumIII.pathSum(root, target));
+    }
+
+    private static void minCostRobotReturnHome() {
+        int[] startPos = {0, 0};
+        int[] homePos = {2, 3};
+        int[] rowCosts = {5, 4, 3};
+        int[] colCosts = {8, 2, 6, 7};
+        System.out.println("Minimum path cost " + MinimumCostHomeComingRobot.minCost(startPos,
+                homePos, rowCosts, colCosts));
+    }
+
+    private static void searchInRotatedSortedArray() {
+        int[] nums = new int[]{4,4,4,4,1,4};
+        int target = 1;
+        System.out.println("index of target " + target + " is " + SearchInRotatedSortedArrayII.search(nums, target));
+    }
+
+    private static void findMinInRotatedSortedArray() {
+        int[] nums = new int[]{3,3,3,3,3,3,3,3,1,3};
+        System.out.println("Min of the array is " + FindMinInRotatedSortedArrayII.findMin(nums));
+    }
+
+    private static void lowestCommonAncestor() {
+        List<Integer> arr = Arrays.asList(3,5,1,6,2,0,8,null,null,7,4);
+        TreeNode root = TreeNode.initBinaryTree(arr);
+        TreeNode p = new TreeNode(5);
+        TreeNode q = new TreeNode(4);
+
+        System.out.println("Lowest common ancestor " + LowestCommonAncestorBT.lowestCommonAncestor(root, p, q));
+    }
+
+    private static void getDirections() {
+        List<Integer> arr = Arrays.asList(5,1,2,3,null,6,4);
+//        List<Integer> arr = Arrays.asList(2,1,0);
+        TreeNode root = TreeNode.initBinaryTree(arr);
+        int start = 3;
+        int dest = 4;
+
+        System.out.println("Lowest common ancestor " + StepByStepDirectionsBT.getDirections(root, start, dest));
     }
 
 }

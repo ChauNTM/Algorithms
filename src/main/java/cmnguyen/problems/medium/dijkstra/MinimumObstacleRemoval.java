@@ -1,8 +1,6 @@
 package main.java.cmnguyen.problems.medium.dijkstra;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class MinimumObstacleRemoval {
 

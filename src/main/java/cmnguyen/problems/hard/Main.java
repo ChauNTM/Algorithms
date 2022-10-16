@@ -1,16 +1,15 @@
 package main.java.cmnguyen.problems.hard;
 
+import main.java.cmnguyen.problems.hard.bfs.JumpGameIV;
+import main.java.cmnguyen.problems.hard.diikstra.MinimumCost;
 import main.java.cmnguyen.problems.hard.heap.MergeSortedLinkList;
-import main.java.cmnguyen.problems.medium.MaxProfitII;
 import main.java.cmnguyen.problems.structure.ListNode;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
-        wordBreakII();
+        jumpGameIV();
     }
 
     static private void courseScheduleV3() {
@@ -65,5 +64,18 @@ public class Main {
         int[] nums = new int[]{1,2,1,2,3};
         int k = 2;
         System.out.println("Sub arrays with k distinct number: " + SubArraysWithKDistinct.subarraysWithKDistinct(nums, k));
+    }
+
+    private static void jumpGameIV() {
+        int[] nums = new int[]{100,-23,-23,404,100,23,23,23,3,404};
+        System.out.println("Can jump " + JumpGameIV.minJumps(nums));
+    }
+
+    private static void minCost() {
+//        int[][] grid = new int[][]{{2,2,2},{2,2,2}};
+        int[][] grid = new int[][]{{1,2},{4,3}};
+//        int[][] grid = new int[][]{{1,1,3},{3,2,2},{1,1,4}};
+//        int[][] grid = new int[][]{{1,1,1,1},{2,2,2,2},{1,1,1,1},{2,2,2,2}};
+        System.out.println("Minimum cost " + MinimumCost.minCost(grid));
     }
 }
