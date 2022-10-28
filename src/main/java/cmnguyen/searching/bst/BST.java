@@ -47,8 +47,8 @@ public class BST<Key extends Comparable<Key>, Value> extends BSTAbstraction<Key,
 
       Node t = node;
       node = min(node.right);
-      node.left = t.left;
       node.right = deleteMin(t.right);
+      node.left = t.left;
     }
     node.N = size(node.left) + size(node.right) + 1;
     return node;

@@ -1,4 +1,4 @@
-package main.java.cmnguyen.problems.medium;
+package main.java.cmnguyen.problems.medium.two_pointers;
 
 /**
  * Given a string s, return the longest palindromic substring in s.

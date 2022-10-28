@@ -1,5 +1,6 @@
 package main.java.cmnguyen.problems.hard;
 
+import main.java.cmnguyen.problems.hard.bfs.EscapeTheSpreadingFire;
 import main.java.cmnguyen.problems.hard.bfs.JumpGameIV;
 import main.java.cmnguyen.problems.hard.diikstra.MinimumCost;
 import main.java.cmnguyen.problems.hard.heap.MergeSortedLinkList;
@@ -9,7 +10,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        jumpGameIV();
+        escapeTheSpreadingFire();
     }
 
     static private void courseScheduleV3() {
@@ -77,5 +78,11 @@ public class Main {
 //        int[][] grid = new int[][]{{1,1,3},{3,2,2},{1,1,4}};
 //        int[][] grid = new int[][]{{1,1,1,1},{2,2,2,2},{1,1,1,1},{2,2,2,2}};
         System.out.println("Minimum cost " + MinimumCost.minCost(grid));
+    }
+
+    private static void escapeTheSpreadingFire() {
+        int[][] grid = new int[][]{{0,2,0,0,0,0,0},{0,0,0,2,2,1,0},{0,2,0,0,1,2,0},{0,0,2,2,2,0,2},{0,0,0,0,0,0,0}};
+//        int[][] grid = new int[][]{{0,0,0,0},{0,1,2,0},{0,2,0,0}};
+        System.out.println("Maximum minutes " + EscapeTheSpreadingFire.maximumMinutes(grid));
     }
 }

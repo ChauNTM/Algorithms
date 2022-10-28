@@ -5,12 +5,13 @@ import main.java.cmnguyen.problems.hard.SlidingWindowMaximum;
 import main.java.cmnguyen.problems.medium.b_tree.BinaryTreeZigzag;
 import main.java.cmnguyen.problems.medium.b_tree.LowestCommonAncestorBT;
 import main.java.cmnguyen.problems.medium.b_tree.StepByStepDirectionsBT;
-import main.java.cmnguyen.problems.medium.backtrack.Permutations;
-import main.java.cmnguyen.problems.medium.backtrack.Subsets;
-import main.java.cmnguyen.problems.medium.backtrack.SubsetsII;
+import main.java.cmnguyen.problems.medium.b_tree.TrimBST;
+import main.java.cmnguyen.problems.medium.backtrack.*;
 import main.java.cmnguyen.problems.medium.bfs.ColoringBorder;
+import main.java.cmnguyen.problems.medium.bfs.RottingOranges;
 import main.java.cmnguyen.problems.medium.bfs.WordSearch;
 import main.java.cmnguyen.problems.medium.binary_search.FindMinInRotatedSortedArrayII;
+import main.java.cmnguyen.problems.medium.binary_search.SearchInRotatedSortedArray;
 import main.java.cmnguyen.problems.medium.binary_search.SearchInRotatedSortedArrayII;
 import main.java.cmnguyen.problems.medium.dfs.MaxAreaOfIsland;
 import main.java.cmnguyen.problems.medium.dfs.NumberOfIslands;
@@ -43,7 +44,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        pathSumIII();
+        combinationSum();
     }
 
     static private void longestPalindromic() {
@@ -156,8 +157,9 @@ public class Main {
     }
 
     private static void permutations() {
-        int[] nums = new int[] {1, 2, 3};
-        List<List<Integer>> result = Permutations.permute(nums);
+        int[] nums = new int[] {2,2,1,1};
+        List<List<Integer>> result = PermutationsII.permuteUnique(nums);
+        System.out.println("size=" + result.size());
         for (int i=0; i<result.size(); i++) {
             System.out.println(result.get(i));
         }
@@ -169,7 +171,7 @@ public class Main {
     }
 
     private static void subsets() {
-        int[] nums = new int[] {1, 2, 3, 4};
+        int[] nums = new int[] {1, 2, 3};
         List<List<Integer>> result = Subsets.subsets(nums);
         for (int i=0; i<result.size(); i++) {
             System.out.println(result.get(i));
@@ -536,6 +538,39 @@ public class Main {
         int dest = 4;
 
         System.out.println("Lowest common ancestor " + StepByStepDirectionsBT.getDirections(root, start, dest));
+    }
+
+    private static void searchRange() {
+        int[] nums = new int[]{1,2,3};
+        int target = 3;
+//        System.out.println("Search of " + target + " in range is " + Arrays.toString(SearchRange.searchRange(nums, target)));
+        System.out.println("Search of " + target + " in range is " + SearchInRotatedSortedArray.search(nums, target));
+    }
+
+    private static void trimBST() {
+        List<Integer> arr = Arrays.asList(3,1,4,null,2);
+        TreeNode root = TreeNode.initBinaryTree(arr);
+        int low = 1;
+        int high = 2;
+
+        System.out.println("Trim BST " + TreeNode.println(TrimBST.trimBST(root, low, high)));
+    }
+
+    private static void orangesRotting() {
+        int[][] grid = new int[][]{{2,1,1},{1,1,0},{0,1,1}};
+//        int[][] grid = new int[][]{{0,2}};
+
+        System.out.println("Total minutes: " + RottingOranges.orangesRotting(grid));
+    }
+
+    private static void combinationSum() {
+        int[] candidates = new int[] {7,3,2};
+        int target = 18;
+        List<List<Integer>> result = CombinationSum.combinationSum(candidates, target);
+        System.out.println("size=" + result.size());
+        for (int i=0; i<result.size(); i++) {
+            System.out.println(result.get(i));
+        }
     }
 
 }

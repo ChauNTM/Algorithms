@@ -1,9 +1,6 @@
 package main.java.cmnguyen.problems.medium.stack;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Stack;
-import java.util.function.Function;
 
 public class EvaluateRPN {
 

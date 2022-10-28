@@ -14,12 +14,12 @@ public class SubsetsII {
         return result;
     }
 
-    private static void backtrack(List<List<Integer>> list, List<Integer> temp, int start, int[] nums) {
+    private static void backtrack(List<List<Integer>> list, List<Integer> temp, int i, int[] nums) {
         list.add(new ArrayList<>(temp));
-        for (int i = start; i < nums.length; i++) {
-            if (i > start && nums[i] == nums[i-1]) continue;
+        for (int j = i; j < nums.length; j++) {
+            if (j > i && nums[j] == nums[j-1]) continue;
             temp.add(nums[i]);
-            backtrack(list, temp, i + 1, nums);
+            backtrack(list, temp, j + 1, nums);
             temp.remove(temp.size() - 1);
         }
     }
