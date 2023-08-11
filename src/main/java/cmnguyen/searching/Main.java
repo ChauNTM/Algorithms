@@ -4,12 +4,17 @@ import main.java.cmnguyen.searching.bst.BST;
 import main.java.cmnguyen.searching.bst.RedBlackTree;
 import main.java.cmnguyen.searching.hashtable.HashTable;
 import main.java.cmnguyen.searching.hashtable.LinearProbingHashST;
+import main.java.cmnguyen.searching.segment_tree.FindingZeroSegmentTree;
+import main.java.cmnguyen.searching.segment_tree.MaximumSegmentTree;
+import main.java.cmnguyen.searching.segment_tree.SumSegmentTree;
 import main.java.cmnguyen.searching.symbol_table.BinarySearchST;
+
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        testRedBlackTree();
+        testSegmentTree();
     }
 
     private static void testRedBlackTree() {
@@ -119,5 +124,26 @@ public class Main {
         st.delete('A');
         System.out.println("Hashtable after delete A: " + st);
 
+    }
+
+    private static void testSegmentTree() {
+//        int[] nums = new int[]{2, 5, 78, -1, 78, 100};
+//        var st = new SumSegmentTree(nums);
+//        System.out.println("Before update " + st);
+//        st.update(3, 5);
+//        System.out.println("After update " + st);
+//        System.out.println("Sum range " + st.sumRange(1, 2));
+//
+//        var maxSt = new MaximumSegmentTree(nums);
+//        int greater = 4;
+//        System.out.println("Maxium in range " + Arrays.toString(maxSt.getMax(1, 4)));
+//        System.out.println("Find first element greater than " + greater + " is " + maxSt.findFirstGreaterThan(greater));
+//
+//        var findZeroSt = new FindingZeroSegmentTree(new int[] {1, 0, 5, -5, 0, 0, 0, 67, -23, 0, 0, 0});
+//        int k = 5;
+//        System.out.println("Finding " + k + " zero in range " + findZeroSt.findKthZero(k));
+
+        int i = -1110;
+        System.out.println("~i=" + ~i);
     }
 }
